@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "place.json",
+  "title": "Place",
+  "description": "A specific, named location with corresponding geo coordinates.",
+  "type": "object",
+  "definitions": {
+    "_id": {
+      "$ref": "types.json#/definitions/placeId"
+    },
+    "abbreviation": {
+      "type": "string",
+      "example": "SJ"
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Any custom attributes for the place",
+      "example": {
+        "city": "San Jose",
+        "state": "California",
+        "state_abbreviation": "CA"
+      }
+    },
+    "country_code": {
+      "$ref": "types.json#/definitions/countryCode3"
+    },
+    "external_refs": {
+      "$ref": "types.json#/definitions/externalRefs",
+      "example": [
+        {
+          "identifier": "ChIJ9T_5iuTKj4ARe3GfygqMnbk",
+          "type": "com.google.placeid",
+          "url": "https://www.google.com/maps/@37.3382082,-121.8863286,19z"
+        }
+      ]
+    },
+    "full_name": {
+      "type": "string",
+      "example": "San Jose, California, USA"
+    },
+    "geo": {
+      "$ref": "types.json#/definitions/geoObject"
+    },
+    "name": {
+      "type": "string",
+      "example": "San Jose"
+    },
+    "place_type": {
+      "type": "string",
+      "description": "The specific type of place (e.g. 'city', 'county', 'region')",
+      "example": "city"
+    },
+    "url": {
+      "$ref": "types.json#/definitions/url",
+      "example": "http://www.sanjoseca.gov"
+    }
+  },
+  "properties": {
+    "_id": {"$ref": "#/definitions/_id"},
+    "created_at": {"$ref": "types.json#/definitions/createdAt"},
+    "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
+    "abbreviation": {"$ref": "#/definitions/abbreviation"},
+    "attributes": {"$ref": "#/definitions/attributes"},
+    "country_code": {"$ref": "#/definitions/country_code"},
+    "external_refs": {"$ref": "#/definitions/external_refs"},
+    "full_name": {"$ref": "#/definitions/full_name"},
+    "geo": {"$ref": "#/definitions/geo"},
+    "name": {"$ref": "#/definitions/name"},
+    "place_type": {"$ref": "#/definitions/place_type"},
+    "url": {"$ref": "#/definitions/url"}
+  },
+  "required": [
+    "geo",
+    "name"
+  ],
+  "additionalProperties": false,
+  "links": [
+    {
+      "title": "Create place",
+      "description": "Create a new place.",
+      "rel": "self",
+      "href": "places",
+      "method": "POST",
+      "required": [
+        "geo",
+        "name"
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "abbreviation": {"$ref": "#/definitions/abbreviation"},
+          "attributes": {"$ref": "#/definitions/attributes"},
+          "country_code": {"$ref": "#/definitions/country_code"},
+          "external_refs": {"$ref": "#/definitions/external_refs"},
+          "full_name": {"$ref": "#/definitions/full_name"},
+          "geo": {"$ref": "#/definitions/geo"},
+          "name": {"$ref": "#/definitions/name"},
+          "place_type": {"$ref": "#/definitions/place_type"},
+          "url": {"$ref": "#/definitions/url"}
+        }
+      },
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "Update place",
+      "description": "Update an existing place.",
+      "rel": "self",
+      "href": "places/{#/definitions/_id}",
+      "method": "PUT",
+      "required": [
+        "geo",
+        "name"
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "abbreviation": {"$ref": "#/definitions/abbreviation"},
+          "attributes": {"$ref": "#/definitions/attributes"},
+          "country_code": {"$ref": "#/definitions/country_code"},
+          "external_refs": {"$ref": "#/definitions/external_refs"},
+          "full_name": {"$ref": "#/definitions/full_name"},
+          "geo": {"$ref": "#/definitions/geo"},
+          "name": {"$ref": "#/definitions/name"},
+          "place_type": {"$ref": "#/definitions/place_type"},
+          "url": {"$ref": "#/definitions/url"}
+        }
+      },
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "Remove place",
+      "description": "Remove an existing place.",
+      "rel": "self",
+      "href": "places/{#/definitions/_id}",
+      "method": "DELETE",
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "Place info",
+      "description": "Return a specific place.",
+      "rel": "self",
+      "href": "places/{#/definitions/_id}",
+      "method": "GET",
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "List places",
+      "description": "Find one or more places based on the query parameters.",
+      "rel": "instances",
+      "href": "places",
+      "method": "GET",
+      "schema": {
+        "$ref": "types.json#/definitions/queryParameters"
+      },
+      "targetSchema": {
+        "allOf": [
+          {"$ref": "types.json#/definitions/paginationMeta"},
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": {"rel": "self"}
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

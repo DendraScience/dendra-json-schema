@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "organization.json",
+  "title": "Organization",
+  "description": "An association, group, or research organization.",
+  "type": "object",
+  "definitions": {
+    "_id": {
+      "$ref": "types.json#/definitions/organizationId"
+    },
+    "email": {
+      "$ref": "types.json#/definitions/email",
+      "example": "infomgr@ucnrs.org"
+    },
+    "name": {
+      "type": "string",
+      "example": "University of California Natural Reserve System"
+    },
+    "url": {
+      "$ref": "types.json#/definitions/url",
+      "example": "http://www.ucnrs.org"
+    }
+  },
+  "properties": {
+    "_id": {"$ref": "#/definitions/_id"},
+    "created_at": {"$ref": "types.json#/definitions/createdAt"},
+    "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
+    "email": {"$ref": "#/definitions/email"},
+    "name": {"$ref": "#/definitions/name"},
+    "url": {"$ref": "#/definitions/url"}
+  },
+  "required": [
+    "name"
+  ],
+  "additionalProperties": false,
+  "links": [
+    {
+      "title": "Create organization",
+      "description": "Create a new organization.",
+      "rel": "self",
+      "href": "organizations",
+      "method": "POST",
+      "required": [
+        "name"
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "email": {"$ref": "#/definitions/email"},
+          "name": {"$ref": "#/definitions/name"},
+          "url": {"$ref": "#/definitions/url"}
+        }
+      },
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "Update organization",
+      "description": "Update an existing organization.",
+      "rel": "self",
+      "href": "organizations/{#/definitions/_id}",
+      "method": "PUT",
+      "required": [
+        "name"
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "email": {"$ref": "#/definitions/email"},
+          "name": {"$ref": "#/definitions/name"},
+          "url": {"$ref": "#/definitions/url"}
+        }
+      },
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "Remove organization",
+      "description": "Remove an existing organization.",
+      "rel": "self",
+      "href": "organizations/{#/definitions/_id}",
+      "method": "DELETE",
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "Organization info",
+      "description": "Return a specific organization.",
+      "rel": "self",
+      "href": "organizations/{#/definitions/_id}",
+      "method": "GET",
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "List organizations",
+      "description": "Find one or more organizations based on the query parameters.",
+      "rel": "instances",
+      "href": "organizations",
+      "method": "GET",
+      "schema": {
+        "$ref": "types.json#/definitions/queryParameters"
+      },
+      "targetSchema": {
+        "allOf": [
+          {"$ref": "types.json#/definitions/paginationMeta"},
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": {"rel": "self"}
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

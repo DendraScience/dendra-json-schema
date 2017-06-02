@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "membership.json",
+  "title": "Membership",
+  "description": "An affiliation between a person and an organization.",
+  "type": "object",
+  "definitions": {
+    "_id": {
+      "$ref": "types.json#/definitions/objectId"
+    },
+    "organization_id": {
+      "$ref": "types.json#/definitions/organizationId",
+      "description": "The organization to which a person belongs"
+    },
+    "person_id": {
+      "$ref": "types.json#/definitions/personId",
+      "description": "The person belonging to the organization"
+    },
+    "roles": {
+      "type": "array",
+      "description": "The person's roles within this organization (e.g. 'admin', 'contact', 'curator', 'manager')",
+      "items": {
+        "type": "string",
+        "example": "contact"
+      },
+      "minItems": 1
+    }
+  },
+  "properties": {
+    "_id": {"$ref": "#/definitions/_id"},
+    "created_at": {"$ref": "types.json#/definitions/createdAt"},
+    "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
+    "organization_id": {"$ref": "#/definitions/organization_id"},
+    "person_id": {"$ref": "#/definitions/person_id"},
+    "roles": {"$ref": "#/definitions/roles"}
+  },
+  "required": [
+    "organization_id",
+    "person_id",
+    "roles"
+  ],
+  "additionalProperties": false,
+  "links": [
+    {
+      "title": "Create membership",
+      "description": "Create a new membership.",
+      "rel": "self",
+      "href": "memberships",
+      "method": "POST",
+      "required": [
+        "organization_id",
+        "person_id",
+        "roles"
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "organization_id": {"$ref": "#/definitions/organization_id"},
+          "person_id": {"$ref": "#/definitions/person_id"},
+          "roles": {"$ref": "#/definitions/roles"}
+        }
+      },
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "Update membership",
+      "description": "Update an existing membership.",
+      "rel": "self",
+      "href": "memberships/{#/definitions/_id}",
+      "method": "PUT",
+      "required": [
+        "roles"
+      ],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "roles": {"$ref": "#/definitions/roles"}
+        }
+      },
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "Remove membership",
+      "description": "Remove an existing membership.",
+      "rel": "self",
+      "href": "memberships/{#/definitions/_id}",
+      "method": "DELETE",
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "Membership info",
+      "description": "Return a specific membership.",
+      "rel": "self",
+      "href": "memberships/{#/definitions/_id}",
+      "method": "GET",
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "List memberships",
+      "description": "Find one or more memberships based on the query parameters.",
+      "rel": "instances",
+      "href": "memberships",
+      "method": "GET",
+      "schema": {
+        "$ref": "types.json#/definitions/queryParameters"
+      },
+      "targetSchema": {
+        "allOf": [
+          {"$ref": "types.json#/definitions/paginationMeta"},
+          {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "array",
+                "items": {"rel": "self"}
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
