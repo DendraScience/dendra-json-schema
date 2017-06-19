@@ -15,8 +15,28 @@
       "type": "object",
       "description": "System generated information about this datastream's attributes",
       "example": {
-        "sort_value": 10.0,
-        "text": "10 m"
+        "sort": {
+          "value1": 10,
+          "value2": 0
+        },
+        "text": "10 m",
+        "unit_term": {
+          "abbreviation": "m",
+          "label": "Meter",
+          "scheme_id": "dt",
+          "vocabulary_id": "dt-unit",
+          "vocabulary_label": "Unit",
+          "vocabulary_type": "unit"
+        }
+      }
+    },
+    "convertible_to_uoms": {
+      "type": "array",
+      "description": "One or more populated unit of measurement objects based on the convertible to uom identifiers",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "example": {}
       }
     },
     "datapoints_config": {
@@ -117,6 +137,15 @@
         "$ref": "types.json#/definitions/uomId"
       }
     },
+    "preferred_uoms": {
+      "type": "array",
+      "description": "One or more populated preferred unit of measurement objects based on the preferred uom identifiers",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "example": {}
+      }
+    },
     "source": {
       "$ref": "types.json#/definitions/datastreamSource"
     },
@@ -149,17 +178,26 @@
       "example": {
         "resolved_terms": [
           {
+            "label": "Average",
             "scheme_id": "ds",
-            "term_label": "Average",
             "vocabulary_id": "ds-aggregate",
             "vocabulary_label": "Aggregate",
             "vocabulary_type": "class"
+          },
+          {
+            "abbreviation": "degF",
+            "label": "DegreeFahrenheit",
+            "scheme_id": "dt",
+            "vocabulary_id": "dt-unit",
+            "vocabulary_label": "Unit",
+            "vocabulary_type": "unit"
           }
         ],
         "unit_tag": "dt_Unit_DegreeFahrenheit",
         "unit_term": {
+          "abbreviation": "degF",
+          "label": "DegreeFahrenheit",
           "scheme_id": "dt",
-          "term_label": "DegreeFahrenheit",
           "vocabulary_id": "dt-unit",
           "vocabulary_label": "Unit",
           "vocabulary_type": "unit"
@@ -200,6 +238,7 @@
     "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
     "attributes": {"$ref": "#/definitions/attributes"},
     "attributes_info": {"$ref": "#/definitions/attributes_info"},
+    "convertible_to_uoms": {"$ref": "#/definitions/convertible_to_uoms"},
     "datapoints_config": {"$ref": "#/definitions/datapoints_config"},
     "derivation_description": {"$ref": "#/definitions/derivation_description"},
     "derived_from_datastream_ids": {"$ref": "#/definitions/derived_from_datastream_ids"},
@@ -212,6 +251,7 @@
     "name": {"$ref": "#/definitions/name"},
     "organization_id": {"$ref": "#/definitions/organization_id"},
     "preferred_uom_ids": {"$ref": "#/definitions/preferred_uom_ids"},
+    "preferred_uoms": {"$ref": "#/definitions/preferred_uoms"},
     "source": {"$ref": "#/definitions/source"},
     "source_type": {"$ref": "#/definitions/source_type"},
     "state": {"$ref": "#/definitions/state"},
@@ -347,7 +387,18 @@
       "href": "datastreams/lookup",
       "method": "GET",
       "schema": {
-        "$ref": "types.json#/definitions/datastreamLookupParameters"
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "som_id": {
+                "$ref": "types.json#/definitions/somId",
+                "description": "Do a fuzzy match and return a unique set of datastreams that are already in or could be converted to this system of measurement"
+              }
+            }
+          },
+          {"$ref": "types.json#/definitions/datastreamLookupParameters"}
+        ]
       },
       "targetSchema": {
         "type": "array",

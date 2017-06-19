@@ -59,7 +59,7 @@
       "description": "Any custom attributes for the datastream",
       "example": {
         "height": {
-          "unit": "Meter",
+          "unit_tag": "dt_Unit_Meter",
           "value": 10
         }
       }
@@ -78,10 +78,6 @@
           "description": "Whether the datastreams have attributes or not",
           "example": false
         },
-        "som_id": {
-          "$ref": "types.json#/definitions/somId",
-          "description": "Get a unique set of datastreams that are already in or can be converted to this system of measurement"
-        },
         "source": {
           "type": "array",
           "description": "A comma separated list of datastream sources (can be combined with attributes_exist and tags)",
@@ -95,10 +91,9 @@
           "items": {"$ref": "types.json#/definitions/stationId"}
         },
         "tags": {
-          "type": "array",
-          "description": "A comma separated list of vocabulary tags",
-          "example": ["ds_Aggregate_Average", "ds_Medium_Air", "ds_Variable_Temperature"],
-          "items": {"type": "string"}
+          "type": "string",
+          "description": "A dot separated list of vocabulary tags",
+          "example": "ds_Aggregate_Average.ds_Medium_Air.ds_Variable_Temperature"
         },
         "tags_exact": {
           "type": "boolean",
