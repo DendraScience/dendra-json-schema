@@ -19,5 +19,6 @@ export default fromJS([
   require('../schemas/draft-06-latest/thing.json'),
   require('../schemas/draft-06-latest/types.json'),
   require('../schemas/draft-06-latest/uom.json'),
+  require('../schemas/draft-06-latest/user.json'),
   require('../schemas/draft-06-latest/vocabulary.json')
 ]);
