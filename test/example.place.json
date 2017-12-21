@@ -1,0 +1,31 @@
+{
+  "_id": "592f155746a1b867a114e050",
+  "abbreviation": "SJ",
+  "attributes": {
+    "city": "San Jose",
+    "state": "California",
+    "state_abbreviation": "CA"
+  },
+  "country_code": "USA",
+  "created_at": "2017-05-28T09:50:23.106Z",
+  "external_refs": [
+    {
+      "identifier": "ChIJ9T_5iuTKj4ARe3GfygqMnbk",
+      "type": "com.google.placeid",
+      "url": "https://www.google.com/maps/@37.3382082,-121.8863286,19z"
+    }
+  ],
+  "full_name": "San Jose, California, USA",
+  "geo": {
+    "coordinates": [
+      -121.73638,
+      37.381666,
+      574.548
+    ],
+    "type": "Point"
+  },
+  "name": "San Jose",
+  "place_type": "city",
+  "updated_at": "2017-05-28T09:50:23.106Z",
+  "url": "http://www.sanjoseca.gov"
+}

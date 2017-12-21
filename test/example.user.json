@@ -1,0 +1,13 @@
+{
+  "_id": "592f155746a1b867a114e040",
+  "created_at": "2017-05-28T09:50:23.106Z",
+  "email": "collin@berkeley.edu",
+  "full_name": "Collin Bode",
+  "name": "Collin",
+  "password": "test",
+  "person_id": "592f155746a1b867a114e040",
+  "roles": [
+    "sys-admin"
+  ],
+  "updated_at": "2017-05-28T09:50:23.106Z"
+}

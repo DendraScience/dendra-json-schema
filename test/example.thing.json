@@ -1,0 +1,39 @@
+{
+  "_id": "592f155746a1b867a114e070",
+  "attributes": {
+    "operating_range": [
+      -35,
+      50
+    ]
+  },
+  "created_at": "2017-05-28T09:50:23.106Z",
+  "description": "The 107 is a rugged, accurate probe that measures temperature of air, soil, or water from -35° to +50°C. It easily interfaces with most Campbell Scientific dataloggers and can be used in a variety of applications.",
+  "full_name": "Campbell Scientific 107-L Temperature Probe",
+  "geo": {
+    "coordinates": [
+      -121.73638,
+      37.381666,
+      574.548
+    ],
+    "type": "Point"
+  },
+  "instance_of_thing_id": "592f155746a1b867a114e071",
+  "is_abstract": false,
+  "manufacturer": {
+    "name": "Campbell Scientific",
+    "url": "https://www.campbellsci.com"
+  },
+  "method_description": "The 107 consists of a thermistor encapsulated in an epoxy-filled aluminum housing. The housing protects the thermistor allowing the probe to be buried in soil or submerged in water.",
+  "model": "107-L",
+  "name": "Campbell 107-L",
+  "part_of_thing_id": "592f155746a1b867a114e072",
+  "serial_number": "1004039",
+  "thing_type": "probe",
+  "updated_at": "2017-05-28T09:50:23.106Z",
+  "urls": [
+    {
+      "label": "Manual",
+      "url": "https://s.campbellsci.com/documents/us/manuals/107.pdf"
+    }
+  ]
+}

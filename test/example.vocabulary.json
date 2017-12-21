@@ -1,0 +1,17 @@
+{
+  "_id": "ds-aggregate",
+  "created_at": "2017-05-28T09:50:23.106Z",
+  "description": "Terms describing how multiple values are grouped together to form a single value.",
+  "label": "Aggregate",
+  "scheme_id": "ds",
+  "terms": [
+    {
+      "abbreviation": "avg",
+      "definition": "The sum of a collection of numbers divided by the number of numbers in the collection.",
+      "label": "Average",
+      "name": "Average/Mean"
+    }
+  ],
+  "updated_at": "2017-05-28T09:50:23.106Z",
+  "vocabulary_type": "class"
+}
