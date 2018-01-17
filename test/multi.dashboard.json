@@ -1,0 +1,222 @@
+{
+  "_id": "592f155746a1b867a114e110",
+  "content": {
+    "rows": [
+      {
+        "classes": [
+          "row-class"
+        ],
+        "columns": [
+          {
+            "classes": [
+              "col-12"
+            ],
+            "component": {
+              "classes": [
+                "component-class"
+              ],
+              "id": "soilTempsChart",
+              "name": "Highchart",
+              "options": {
+                "chart": {
+                  "title": {
+                    "text": "Air Temperature"
+                  }
+                },
+                "colors": [
+                  "#dcac5c",
+                  "#615c42"
+                ]
+              },
+              "style": {
+                "backgroundColor": "white"
+              },
+              "topic": "soilTemps"
+            },
+            "style": {
+              "backgroundColor": "white"
+            },
+            "title": "Col title"
+          }
+        ],
+        "style": {
+          "backgroundColor": "white"
+        },
+        "title": "Row title"
+      },
+      {
+        "classes": [
+          "row-class"
+        ],
+        "columns": [
+          {
+            "classes": [
+              "col-12"
+            ],
+            "component": {
+              "classes": [
+                "component-class"
+              ],
+              "id": "soilTempsChart",
+              "name": "Highchart",
+              "options": {
+                "chart": {
+                  "title": {
+                    "text": "Air Temperature"
+                  }
+                },
+                "colors": "SERIES.AIR_TEMP"
+              },
+              "style": {
+                "backgroundColor": "white"
+              },
+              "topic": "soilTemps"
+            },
+            "style": {
+              "backgroundColor": "white"
+            },
+            "title": "Col title"
+          }
+        ],
+        "style": {
+          "backgroundColor": "white"
+        },
+        "title": "Row title"
+      }
+    ]
+  },
+  "enabled": true,
+  "name": "Well Status",
+  "organization_id": "592f155746a1b867a114e030",
+  "slug": "well-status",
+  "sort_value": 10,
+  "sources": [
+    {
+      "after_fetch_hook": "seriesAsc",
+      "assign_hook": "result",
+      "before_fetch_hook": "seriesAsc",
+      "clear_hook": "channel",
+      "fetch_hook": "result",
+      "find_actions": [
+        {
+          "options": {},
+          "path": "/datapoints/lookup",
+          "query": {
+            "_id": [
+              "58e6cc04df5ce60001260687"
+            ]
+          }
+        },
+        {
+          "options": {},
+          "path": "/datapoints/lookup",
+          "query": {
+            "_id": [
+              "58e6cc04df5ce600012606b1"
+            ]
+          }
+        }
+      ],
+      "guard_hook": "seriesAsc",
+      "key": "soilTemps",
+      "options": {
+        "cursorDate": [
+          {
+            "m": "add",
+            "p": [
+              4,
+              "d"
+            ]
+          }
+        ],
+        "endDate": [
+          {
+            "m": "startOf",
+            "p": "d"
+          },
+          {
+            "m": "add",
+            "p": [
+              1,
+              "d"
+            ]
+          }
+        ],
+        "startDate": [
+          {
+            "m": "startOf",
+            "p": "d"
+          },
+          {
+            "m": "subtract",
+            "p": [
+              13,
+              "d"
+            ]
+          }
+        ],
+        "useWallTime": true
+      },
+      "query_builder": "seriesAsc",
+      "template": "seriesAsc",
+      "topic": "soilTemps"
+    },
+    {
+      "find_actions": [
+        {
+          "options": {},
+          "path": "/datapoints/lookup",
+          "query": {
+            "station_id": [
+              "58e68cabdf5ce600012602b2",
+              "58e68cabdf5ce600012602b3",
+              "58e68cabdf5ce600012602c0"
+            ],
+            "tags": "ds_Medium_Air.ds_Variable_Temperature.ds_Aggregate_Average"
+          }
+        }
+      ],
+      "options": {
+        "cursorDate": [
+          {
+            "m": "add",
+            "p": [
+              4,
+              "d"
+            ]
+          }
+        ],
+        "endDate": [
+          {
+            "m": "startOf",
+            "p": "d"
+          },
+          {
+            "m": "add",
+            "p": [
+              1,
+              "d"
+            ]
+          }
+        ],
+        "startDate": [
+          {
+            "m": "startOf",
+            "p": "d"
+          },
+          {
+            "m": "subtract",
+            "p": [
+              13,
+              "d"
+            ]
+          }
+        ]
+      },
+      "template": "seriesAsc",
+      "topic": "pressure"
+    }
+  ],
+  "station_id": "592f155746a1b867a114e060",
+  "utc_offset": -28800
+}
