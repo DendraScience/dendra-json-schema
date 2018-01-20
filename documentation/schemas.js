@@ -7,6 +7,7 @@ export default fromJS([
   // for the sections in src/client/introduction.js.  You are free
   // to customize or remove both the schema and the introduction component.
   // require('./getting-started.json'),
+  require('../schemas/draft-06-latest/dashboard.json'),
   require('../schemas/draft-06-latest/datapoint.json'),
   require('../schemas/draft-06-latest/datastream.json'),
   require('../schemas/draft-06-latest/membership.json'),

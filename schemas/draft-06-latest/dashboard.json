@@ -11,52 +11,6 @@
     "content": {
       "type": "object",
       "description": "Layout and component configuration used for rendering the dashboard",
-      "example": {
-        "rows": [
-          {
-            "classes": [
-              "row-class"
-            ],
-            "columns": [
-              {
-                "classes": [
-                  "col-12"
-                ],
-                "component": {
-                  "classes": [
-                    "component-class"
-                  ],
-                  "id": "soilTempsChart",
-                  "name": "Highchart",
-                  "options": {
-                    "chart": {
-                      "title": {
-                        "text": "Air Temperature"
-                      }
-                    },
-                    "colors": [
-                      "#dcac5c",
-                      "#615c42"
-                    ]
-                  },
-                  "style": {
-                    "backgroundColor": "white"
-                  },
-                  "topic": "soilTemps"
-                },
-                "style": {
-                  "backgroundColor": "white"
-                },
-                "title": "Col title"
-              }
-            ],
-            "style": {
-              "backgroundColor": "white"
-            },
-            "title": "Row title"
-          }
-        ]
-      },
       "additionalProperties": false,
       "properties": {
         "rows": {
@@ -87,19 +41,33 @@
                           "$ref": "types.json#/definitions/cssClasses"
                         },
                         "id": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "soilTempsChart"
                         },
                         "name": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "Highchart"
                         },
                         "options": {
-                          "type": "object"
+                          "type": "object",
+                          "example": {
+                            "chart": {
+                              "title": {
+                                "text": "Air Temperature"
+                              }
+                            },
+                            "colors": [
+                              "#dcac5c",
+                              "#615c42"
+                            ]
+                          }
                         },
                         "style": {
                           "$ref": "types.json#/definitions/cssStyle"
                         },
                         "topic": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "soilTemps"
                         }
                       },
                       "required": [
@@ -111,7 +79,8 @@
                       "$ref": "types.json#/definitions/cssStyle"
                     },
                     "title": {
-                      "type": "string"
+                      "type": "string",
+                      "example": "Col title"
                     }
                   },
                   "required": [
@@ -123,7 +92,8 @@
                 "$ref": "types.json#/definitions/cssStyle"
               },
               "title": {
-                "type": "string"
+                "type": "string",
+                "example": "Row title"
               }
             },
             "required": [

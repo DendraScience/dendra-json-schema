@@ -16,13 +16,20 @@
       "type": "array",
       "description": "One or more CSS class names to apply to the entity",
       "minItems": 1,
+      "example": [
+        "first-class",
+        "second-class"
+      ],
       "items": {
         "type": "string"
       }
     },
     "cssStyle": {
       "type": "object",
-      "description": "One or more CSS style name/value pairs to apply to the entity"
+      "description": "One or more CSS style name/value pairs to apply to the entity",
+      "example": {
+        "backgroundColor": "white"
+      }
     },
     "dashboardId": {
       "$ref": "types.json#/definitions/objectId",
