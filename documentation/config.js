@@ -9,7 +9,7 @@ export default {
     //
     // By default, the generated app's src/client/introduction.js
     // component displays this baseUrl in your documentation.
-    baseUrl: 'https://api.dendra.science/v1/',
+    baseUrl: 'http://api.dendra.science/v1/',
     requestHeaders: {
       // This is a JSON Schema which treats the HTTP request
       // headers as if they were a JSON object instance.

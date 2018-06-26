@@ -1,0 +1,42 @@
+{
+  "_id": "rollupDatapoints-0C97-4378-F4DA-A1FD-7353-EFBB-B379-9CBD-4B78-1927-44D2-790D-25BA-A086-BCEC-0D93",
+  "auth_info": {
+    "jwt": "TOKEN"
+  },
+  "build_at": "2017-05-28T09:50:23.106Z",
+  "build_every": "1_d",
+  "build_info": {
+    "request_subject": "dendra.aggregateBuild.v1.req",
+    "requested_at": "2017-05-28T09:50:23.106Z"
+  },
+  "created_at": "2017-05-28T09:50:23.106Z",
+  "description": "Blue Oak Ranch daily cumulative precipitation.",
+  "expires_at": "2017-05-28T09:50:23.106Z",
+  "method": "rollupDatapoints",
+  "name": "Daily Cumulative Precipitation",
+  "spec": {
+    "big_math": true,
+    "query": {
+      "datastream_id": "5ae879c9fe27f428ce102df9",
+      "time_local": true
+    },
+    "rollups": [
+      {
+        "aggregations": [
+          {
+            "alias": "v_sum",
+            "field": "v",
+            "filter": "optional",
+            "func": "sum"
+          }
+        ],
+        "window": "1_h"
+      }
+    ],
+    "shift": "so_M",
+    "time_cursor": "1_d",
+    "time_gte": "2017-01-01",
+    "time_lt": "2018-01-01"
+  },
+  "updated_at": "2018-05-06T21:38:03.065Z"
+}
