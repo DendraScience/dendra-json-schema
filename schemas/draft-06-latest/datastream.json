@@ -52,10 +52,10 @@
             "example": "legacy"
           },
           "begins_at": {
-            "$ref": "types.json#/definitions/isoDate"
+            "$ref": "types.json#/definitions/isoDatetimeUTC"
           },
           "ends_before": {
-            "$ref": "types.json#/definitions/isoDate"
+            "$ref": "types.json#/definitions/isoDatetimeUTC"
           },
           "params": {
             "type": "object",

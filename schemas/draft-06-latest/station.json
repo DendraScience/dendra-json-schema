@@ -9,11 +9,11 @@
       "$ref": "types.json#/definitions/stationId"
     },
     "activated_at": {
-      "$ref": "types.json#/definitions/isoDate",
+      "$ref": "types.json#/definitions/isoDatetimeUTC",
       "description": "When this station was first put into service"
     },
     "deactivated_at": {
-      "$ref": "types.json#/definitions/isoDate",
+      "$ref": "types.json#/definitions/isoDatetimeUTC",
       "description": "When this station was taken out of service"
     },
     "enabled": {

@@ -19,6 +19,11 @@
       "$ref": "types.json#/definitions/description",
       "example": "The 107 is a rugged, accurate probe that measures temperature of air, soil, or water from -35° to +50°C. It easily interfaces with most Campbell Scientific dataloggers and can be used in a variety of applications."
     },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether this this is enabled (shown) in any user interface",
+      "example": true
+    },
     "full_name": {
       "type": "string",
       "example": "Campbell Scientific 107-L Temperature Probe"
@@ -93,10 +98,11 @@
   "additionalProperties": false,
   "properties": {
     "_id": {"$ref": "#/definitions/_id"},
-    "created_at": {"$ref": "types.json#/definitions/createdAt"},
-    "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
     "attributes": {"$ref": "#/definitions/attributes"},
+    "created_at": {"$ref": "types.json#/definitions/createdAt"},
+    "created_by": {"$ref": "types.json#/definitions/createdBy"},
     "description": {"$ref": "#/definitions/description"},
+    "enabled": {"$ref": "#/definitions/enabled"},
     "full_name": {"$ref": "#/definitions/full_name"},
     "geo": {"$ref": "#/definitions/geo"},
     "instance_of_thing_id": {"$ref": "#/definitions/instance_of_thing_id"},
@@ -108,9 +114,12 @@
     "part_of_thing_id": {"$ref": "#/definitions/part_of_thing_id"},
     "serial_number": {"$ref": "#/definitions/serial_number"},
     "thing_type": {"$ref": "#/definitions/thing_type"},
+    "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
+    "updated_by": {"$ref": "types.json#/definitions/updatedBy"},
     "urls": {"$ref": "#/definitions/urls"}
   },
   "required": [
+    "enabled",
     "is_abstract",
     "name"
   ],
@@ -122,6 +131,7 @@
       "href": "things",
       "method": "POST",
       "required": [
+        "enabled",
         "is_abstract",
         "name"
       ],
@@ -153,6 +163,7 @@
       "href": "things/{#/definitions/_id}",
       "method": "PUT",
       "required": [
+        "enabled",
         "is_abstract",
         "name"
       ],

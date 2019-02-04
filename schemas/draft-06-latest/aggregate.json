@@ -16,7 +16,7 @@
       }
     },
     "build_at": {
-      "$ref": "types.json#/definitions/isoDate",
+      "$ref": "types.json#/definitions/isoDatetimeUTC",
       "description": "When this aggregate is scheduled to be built"
     },
     "build_every": {
@@ -38,7 +38,7 @@
       "example": "Blue Oak Ranch daily cumulative precipitation."
     },
     "expires_at": {
-      "$ref": "types.json#/definitions/isoDate",
+      "$ref": "types.json#/definitions/isoDatetimeUTC",
       "description": "When this aggregate definition is scheduled to be groomed"
     },
     "method": {
@@ -82,17 +82,18 @@
   "additionalProperties": false,
   "properties": {
     "_id": {"$ref": "#/definitions/_id"},
-    "created_at": {"$ref": "types.json#/definitions/createdAt"},
-    "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
     "auth_info": {"$ref": "#/definitions/auth_info"},
     "build_at": {"$ref": "#/definitions/build_at"},
     "build_every": {"$ref": "#/definitions/build_every"},
     "build_info": {"$ref": "#/definitions/build_info"},
+    "created_at": {"$ref": "types.json#/definitions/createdAt"},
     "description": {"$ref": "#/definitions/description"},
     "expires_at": {"$ref": "#/definitions/expires_at"},
     "method": {"$ref": "#/definitions/method"},
     "name": {"$ref": "#/definitions/name"},
-    "spec": {"$ref": "#/definitions/spec"}
+    "spec": {"$ref": "#/definitions/spec"},
+    "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
+    "updated_by": {"$ref": "types.json#/definitions/updatedBy"}
   },
   "required": [
     "method",
@@ -106,8 +107,8 @@
       "href": "aggregates",
       "method": "POST",
       "required": [
-        "enabled",
-        "name"
+        "method",
+        "spec"
       ],
       "schema": {
         "type": "object",
@@ -197,16 +198,16 @@
             "type": "object",
             "properties": {
               "_id": {"$ref": "#/definitions/_id"},
-              "created_at": {"$ref": "types.json#/definitions/createdAt"},
-              "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
               "build_at": {"$ref": "#/definitions/build_at"},
               "build_every": {"$ref": "#/definitions/build_every"},
               "build_info": {"$ref": "#/definitions/build_info"},
+              "created_at": {"$ref": "types.json#/definitions/createdAt"},
               "description": {"$ref": "#/definitions/description"},
               "expires_at": {"$ref": "#/definitions/expires_at"},
               "method": {"$ref": "#/definitions/method"},
               "name": {"$ref": "#/definitions/name"},
-              "spec": {"$ref": "#/definitions/spec"}
+              "spec": {"$ref": "#/definitions/spec"},
+              "updated_at": {"$ref": "types.json#/definitions/updatedAt"}
             }
           },
           "result": {
