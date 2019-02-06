@@ -8,6 +8,7 @@ export default fromJS([
   // to customize or remove both the schema and the introduction component.
   // require('./getting-started.json'),
   require('../schemas/draft-06-latest/aggregate.json'),
+  require('../schemas/draft-06-latest/annotation.json'),
   require('../schemas/draft-06-latest/dashboard.json'),
   require('../schemas/draft-06-latest/datapoint.json'),
   require('../schemas/draft-06-latest/datastream.json'),
