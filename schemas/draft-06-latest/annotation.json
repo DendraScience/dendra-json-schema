@@ -128,6 +128,7 @@
     "title": {"$ref": "#/definitions/title"}
   },
   "required": [
+    "begins_at",
     "enabled",
     "organization_id",
     "title"
@@ -155,6 +156,7 @@
           "title": {"$ref": "#/definitions/title"}
         },
         "required": [
+          "begins_at",
           "enabled",
           "organization_id",
           "title"
@@ -184,6 +186,7 @@
           "title": {"$ref": "#/definitions/title"}
         },
         "required": [
+          "begins_at",
           "enabled",
           "organization_id",
           "title"
