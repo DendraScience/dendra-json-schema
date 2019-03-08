@@ -6,8 +6,8 @@
   "author": "J. Scott Smith <scott@newleafsolutionsinc.com>",
   "scripts": {
     "test": "npm run test-schemas && npm run test-extended",
-    "test-extended": "for s in schemas/draft-06-latest/extended/*.json; do ajv compile -s \"$s\"; done",
-    "test-schemas": "for d in test/*.json; do s=${d#*.}; ajv test -s \"schemas/draft-06-latest/$s\" -r schemas/draft-06-latest/types.json -d \"$d\" --valid; done",
-    "test:watch": "chokidar --initial 'schemas/draft-06-latest/**/*.json' 'test/**/*.json' -c 'npm run test'"
+    "test-extended": "for s in schemas/draft-07-latest/extended/*.json; do ajv compile -s \"$s\"; done",
+    "test-schemas": "for d in test/*.json; do s=${d#*.}; ajv test -s \"schemas/draft-07-latest/$s\" -r schemas/draft-07-latest/types.json -d \"$d\" --valid; done",
+    "test:watch": "chokidar --initial 'schemas/draft-07-latest/**/*.json' 'test/**/*.json' -c 'npm run test'"
   }
 }

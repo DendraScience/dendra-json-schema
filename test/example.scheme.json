@@ -1,10 +1,12 @@
 {
   "_id": "ds",
   "created_at": "2017-05-28T09:50:23.106Z",
-  "description": "A collection of controlled vocabularies for internal use in the Dendro system.",
+  "created_by": "592f155746a1b867a114e010",
+  "description": "A collection of controlled vocabularies for internal use in the Dendra system.",
   "name": "Dendra System Controlled Vocabularies",
   "priority": 1,
   "updated_at": "2017-05-28T09:50:23.106Z",
+  "updated_by": "592f155746a1b867a114e010",
   "url": "http://docs.dendra.science",
   "version": "1.0"
 }

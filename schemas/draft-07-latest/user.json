@@ -1,36 +1,41 @@
 {
-  "$schema": "http://json-schema.org/draft-06/schema#",
-  "$id": "organization.json",
-  "title": "Organization",
-  "description": "An association, group, or research organization.",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "user.json",
+  "title": "User",
+  "description": "A user account with credentials for authentication.",
   "type": "object",
   "definitions": {
     "_id": {
-      "$ref": "types.json#/definitions/organizationId"
-    },
-    "description": {
-      "$ref": "types.json#/definitions/description",
-      "example": "The UC Natural Reserve System is a network of protected natural areas throughout California used for monitoring, education, and research. As part of a climate change monitoring grant, each reserve has a weather station on site."
+      "$ref": "types.json#/definitions/userId"
     },
     "email": {
       "$ref": "types.json#/definitions/email",
-      "example": "infomgr@ucnrs.org"
+      "example": "collin@berkeley.edu"
     },
     "full_name": {
       "type": "string",
-      "example": "University of California Natural Reserve System"
+      "example": "Collin Bode"
     },
     "name": {
       "type": "string",
-      "example": "UC Natural Reserve System"
+      "example": "Collin"
     },
-    "slug": {
-      "$ref": "types.json#/definitions/slug",
-      "example": "ucnrs"
+    "password": {
+      "type": "string",
+      "description": "A password for local authentication"
     },
-    "url": {
-      "$ref": "types.json#/definitions/url",
-      "example": "http://www.ucnrs.org"
+    "person_id": {
+      "$ref": "types.json#/definitions/personId",
+      "description": "The person affiliated with this user account"
+    },
+    "roles": {
+      "type": "array",
+      "description": "The user's roles within the system (e.g. 'sys-admin')",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "example": "sys-admin"
+      }
     }
   },
   "additionalProperties": false,
@@ -38,108 +43,119 @@
     "_id": {"$ref": "#/definitions/_id"},
     "created_at": {"$ref": "types.json#/definitions/createdAt"},
     "created_by": {"$ref": "types.json#/definitions/createdBy"},
-    "description": {"$ref": "#/definitions/description"},
     "email": {"$ref": "#/definitions/email"},
     "full_name": {"$ref": "#/definitions/full_name"},
     "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
     "name": {"$ref": "#/definitions/name"},
-    "slug": {"$ref": "#/definitions/slug"},
+    "password": {"$ref": "#/definitions/password"},
+    "person_id": {"$ref": "#/definitions/person_id"},
+    "roles": {"$ref": "#/definitions/roles"},
     "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
-    "updated_by": {"$ref": "types.json#/definitions/updatedBy"},
-    "url": {"$ref": "#/definitions/url"}
+    "updated_by": {"$ref": "types.json#/definitions/updatedBy"}
   },
   "required": [
+    "email",
     "is_enabled",
-    "name"
+    "name",
+    "password",
+    "roles"
   ],
   "links": [
     {
-      "title": "Create organization",
-      "description": "Create a new organization.",
+      "title": "Create user",
+      "description": "Create a new user.",
       "rel": "self",
-      "href": "organizations",
+      "href": "users",
       "method": "POST",
       "required": [
-        "name"
+        "email",
+        "is_enabled",
+        "name",
+        "password",
+        "roles"
       ],
       "schema": {
         "type": "object",
         "properties": {
-          "description": {"$ref": "#/definitions/description"},
           "email": {"$ref": "#/definitions/email"},
           "full_name": {"$ref": "#/definitions/full_name"},
           "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"},
-          "slug": {"$ref": "#/definitions/slug"},
-          "url": {"$ref": "#/definitions/url"}
+          "password": {"$ref": "#/definitions/password"},
+          "person_id": {"$ref": "#/definitions/person_id"},
+          "roles": {"$ref": "#/definitions/roles"}
         }
       },
       "targetSchema": {"rel": "self"}
     },
     {
-      "title": "Patch organization",
-      "description": "Patch an existing organization.",
+      "title": "Patch user",
+      "description": "Patch an existing user.",
       "rel": "self",
-      "href": "organizations/{#/definitions/_id}",
+      "href": "users/{#/definitions/_id}",
       "method": "PATCH",
       "schema": {
         "type": "object",
         "properties": {
-          "description": {"$ref": "#/definitions/description"},
           "email": {"$ref": "#/definitions/email"},
           "full_name": {"$ref": "#/definitions/full_name"},
           "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"},
-          "slug": {"$ref": "#/definitions/slug"},
-          "url": {"$ref": "#/definitions/url"}
+          "password": {"$ref": "#/definitions/password"},
+          "person_id": {"$ref": "#/definitions/person_id"},
+          "roles": {"$ref": "#/definitions/roles"}
         }
       },
       "targetSchema": {"rel": "self"}
     },
     {
-      "title": "Update organization",
-      "description": "Update an existing organization.",
+      "title": "Update user",
+      "description": "Update an existing user.",
       "rel": "self",
-      "href": "organizations/{#/definitions/_id}",
+      "href": "users/{#/definitions/_id}",
       "method": "PUT",
       "required": [
-        "name"
+        "email",
+        "is_enabled",
+        "name",
+        "password",
+        "roles"
       ],
       "schema": {
         "type": "object",
         "properties": {
-          "description": {"$ref": "#/definitions/description"},
           "email": {"$ref": "#/definitions/email"},
           "full_name": {"$ref": "#/definitions/full_name"},
           "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"},
-          "slug": {"$ref": "#/definitions/slug"},
-          "url": {"$ref": "#/definitions/url"}
+          "password": {"$ref": "#/definitions/password"},
+          "person_id": {"$ref": "#/definitions/person_id"},
+          "roles": {"$ref": "#/definitions/roles"}
         }
       },
       "targetSchema": {"rel": "self"}
     },
     {
-      "title": "Remove organization",
-      "description": "Remove an existing organization.",
+      "title": "Remove user",
+      "description": "Remove an existing user.",
       "rel": "self",
-      "href": "organizations/{#/definitions/_id}",
+      "href": "users/{#/definitions/_id}",
       "method": "DELETE",
       "targetSchema": {"rel": "self"}
     },
     {
-      "title": "Organization info",
-      "description": "Return a specific organization.",
+      "title": "User info",
+      "description": "Return a specific user.",
       "rel": "self",
-      "href": "organizations/{#/definitions/_id}",
+      "href": "users/{#/definitions/_id}",
       "method": "GET",
       "targetSchema": {"rel": "self"}
     },
     {
-      "title": "List organizations",
-      "description": "Find one or more organizations based on the query parameters.",
+      "title": "List users",
+      "description": "Find one or more users based on the query parameters.",
       "rel": "instances",
-      "href": "organizations",
+      "href": "users",
       "method": "GET",
       "schema": {
         "$ref": "types.json#/definitions/queryParameters"

@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "vocabulary.patch.json",
+  "$patch": {
+    "source": {"$ref": "vocabulary.json#"},
+    "with": [
+      {
+        "op": "remove",
+        "path": "/required"
+      },
+      {
+        "op": "replace",
+        "path": "/properties",
+        "value": {
+          "description": {"$ref": "#/definitions/description"},
+          "label": {"$ref": "#/definitions/label"},
+          "terms": {"$ref": "#/definitions/terms"},
+          "$unset": {
+            "properties": {
+              "description": {"$ref": "#/definitions/description"},
+              "terms": {"$ref": "#/definitions/terms"}
+            },
+            "type": "object"
+          }
+        }
+      }
+    ]
+  }
+}

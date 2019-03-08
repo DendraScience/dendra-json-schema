@@ -3,6 +3,7 @@
   "description": "Sagehen Creek Field Station & the Sagehen Experimental Forest are research and teaching facilities of the University of California at Berkeley's Office of the Vice Chancellor for Research, the Berkeley Natural History Museums & the U.C. Natural Reserve System. We are also a member of the Organization of Biological Field Stations.",
   "email": "faerthen@gmail.com",
   "full_name": "Sagehen Creek Field Station",
+  "is_enabled": true,
   "name": "Sagehen",
   "slug": "sagehen-field-station",
   "url": "http://sagehen.ucnrs.org"

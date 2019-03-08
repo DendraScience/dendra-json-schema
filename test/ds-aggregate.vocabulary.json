@@ -23,5 +23,6 @@
     {
       "label": "Cumulative"
     }
-  ]
+  ],
+  "vocabulary_type": "class"
 }
