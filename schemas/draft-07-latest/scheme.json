@@ -38,6 +38,7 @@
     "created_at": {"$ref": "types.json#/definitions/createdAt"},
     "created_by": {"$ref": "types.json#/definitions/createdBy"},
     "description": {"$ref": "#/definitions/description"},
+    "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
     "name": {"$ref": "#/definitions/name"},
     "priority": {"$ref": "#/definitions/priority"},
     "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
@@ -47,6 +48,7 @@
   },
   "required": [
     "_id",
+    "is_enabled",
     "name"
   ],
   "links": [
@@ -58,6 +60,7 @@
       "method": "POST",
       "required": [
         "_id",
+        "is_enabled",
         "name"
       ],
       "schema": {
@@ -65,6 +68,7 @@
         "properties": {
           "_id": {"$ref": "#/definitions/_id"},
           "description": {"$ref": "#/definitions/description"},
+          "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"},
           "priority": {"$ref": "#/definitions/priority"},
           "url": {"$ref": "#/definitions/url"},
@@ -83,6 +87,7 @@
         "type": "object",
         "properties": {
           "description": {"$ref": "#/definitions/description"},
+          "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"},
           "priority": {"$ref": "#/definitions/priority"},
           "url": {"$ref": "#/definitions/url"},
@@ -99,6 +104,7 @@
       "method": "PUT",
       "required": [
         "_id",
+        "is_enabled",
         "name"
       ],
       "schema": {
@@ -106,6 +112,7 @@
         "properties": {
           "_id": {"$ref": "#/definitions/_id"},
           "description": {"$ref": "#/definitions/description"},
+          "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"},
           "priority": {"$ref": "#/definitions/priority"},
           "url": {"$ref": "#/definitions/url"},

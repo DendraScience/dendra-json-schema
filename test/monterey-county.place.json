@@ -4050,6 +4050,7 @@
     ],
     "type": "MultiPolygon"
   },
+  "is_enabled": true,
   "name": "Monterey County",
   "place_type": "county"
 }

@@ -1,6 +1,7 @@
 {
   "_id": "dw",
   "description": "A collection of controlled vocabularies to access data in the National Weather Service's (NWS) digital forecast database.",
+  "is_enabled": false,
   "name": "Digital Weather Vocabularies",
   "url": "https://graphical.weather.gov/xml/rest.php"
 }

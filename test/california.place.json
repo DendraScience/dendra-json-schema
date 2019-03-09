@@ -2032,6 +2032,7 @@
     ],
     "type": "Polygon"
   },
+  "is_enabled": true,
   "name": "California",
   "place_type": "state"
 }

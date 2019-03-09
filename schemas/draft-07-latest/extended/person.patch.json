@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "vocabulary.patch.json",
+  "$id": "person.patch.json",
   "$patch": {
-    "source": {"$ref": "vocabulary.json#"},
+    "source": {"$ref": "person.json#"},
     "with": [
       {
         "op": "remove",
@@ -12,15 +12,14 @@
         "op": "replace",
         "path": "/properties",
         "value": {
-          "description": {"$ref": "#/definitions/description"},
+          "email": {"$ref": "#/definitions/email"},
+          "full_name": {"$ref": "#/definitions/full_name"},
           "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
-          "label": {"$ref": "#/definitions/label"},
-          "terms": {"$ref": "#/definitions/terms"},
-          "vocabulary_type": {"$ref": "#/definitions/vocabulary_type"},
+          "name": {"$ref": "#/definitions/name"},
           "$unset": {
             "properties": {
-              "description": {"$ref": "#/definitions/description"},
-              "terms": {"$ref": "#/definitions/terms"}
+              "email": {"$ref": "#/definitions/email"},
+              "full_name": {"$ref": "#/definitions/full_name"}
             },
             "type": "object"
           }

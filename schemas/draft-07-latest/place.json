@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "place.json",
   "title": "Place",
   "description": "A specific, named location with corresponding geo coordinates.",
@@ -22,7 +22,7 @@
       }
     },
     "country_code": {
-      "$ref": "types.json#/definitions/countryCode3"
+      "$ref": "types.json#/definitions/isoCountryCode3"
     },
     "external_refs": {
       "$ref": "types.json#/definitions/externalRefs",
@@ -58,21 +58,26 @@
   "additionalProperties": false,
   "properties": {
     "_id": {"$ref": "#/definitions/_id"},
-    "created_at": {"$ref": "types.json#/definitions/createdAt"},
-    "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
     "abbreviation": {"$ref": "#/definitions/abbreviation"},
     "attributes": {"$ref": "#/definitions/attributes"},
     "country_code": {"$ref": "#/definitions/country_code"},
+    "created_at": {"$ref": "types.json#/definitions/createdAt"},
+    "created_by": {"$ref": "types.json#/definitions/createdBy"},
     "external_refs": {"$ref": "#/definitions/external_refs"},
     "full_name": {"$ref": "#/definitions/full_name"},
     "geo": {"$ref": "#/definitions/geo"},
+    "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
     "name": {"$ref": "#/definitions/name"},
     "place_type": {"$ref": "#/definitions/place_type"},
+    "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
+    "updated_by": {"$ref": "types.json#/definitions/updatedBy"},
     "url": {"$ref": "#/definitions/url"}
   },
   "required": [
     "geo",
-    "name"
+    "is_enabled",
+    "name",
+    "place_type"
   ],
   "links": [
     {
@@ -83,7 +88,9 @@
       "method": "POST",
       "required": [
         "geo",
-        "name"
+        "is_enabled",
+        "name",
+        "place_type"
       ],
       "schema": {
         "type": "object",
@@ -94,6 +101,30 @@
           "external_refs": {"$ref": "#/definitions/external_refs"},
           "full_name": {"$ref": "#/definitions/full_name"},
           "geo": {"$ref": "#/definitions/geo"},
+          "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
+          "name": {"$ref": "#/definitions/name"},
+          "place_type": {"$ref": "#/definitions/place_type"},
+          "url": {"$ref": "#/definitions/url"}
+        }
+      },
+      "targetSchema": {"rel": "self"}
+    },
+    {
+      "title": "Patch place",
+      "description": "Patch an existing place.",
+      "rel": "self",
+      "href": "places/{#/definitions/_id}",
+      "method": "PATCH",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "abbreviation": {"$ref": "#/definitions/abbreviation"},
+          "attributes": {"$ref": "#/definitions/attributes"},
+          "country_code": {"$ref": "#/definitions/country_code"},
+          "external_refs": {"$ref": "#/definitions/external_refs"},
+          "full_name": {"$ref": "#/definitions/full_name"},
+          "geo": {"$ref": "#/definitions/geo"},
+          "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"},
           "place_type": {"$ref": "#/definitions/place_type"},
           "url": {"$ref": "#/definitions/url"}
@@ -109,7 +140,9 @@
       "method": "PUT",
       "required": [
         "geo",
-        "name"
+        "is_enabled",
+        "name",
+        "place_type"
       ],
       "schema": {
         "type": "object",
@@ -120,6 +153,7 @@
           "external_refs": {"$ref": "#/definitions/external_refs"},
           "full_name": {"$ref": "#/definitions/full_name"},
           "geo": {"$ref": "#/definitions/geo"},
+          "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"},
           "place_type": {"$ref": "#/definitions/place_type"},
           "url": {"$ref": "#/definitions/url"}

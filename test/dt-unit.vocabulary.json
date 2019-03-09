@@ -1,5 +1,6 @@
 {
   "_id": "dt-unit",
+  "is_enabled": true,
   "label": "Unit",
   "scheme_id": "dt",
   "terms": [
@@ -193,5 +194,6 @@
       "label": "WattPerSquareMeter",
       "name": "Watt Per Square Meter"
     }
-  ]
+  ],
+  "vocabulary_type": "unit"
 }

@@ -2532,6 +2532,7 @@
     ],
     "type": "Polygon"
   },
+  "is_enabled": true,
   "name": "Humboldt County",
   "place_type": "county"
 }

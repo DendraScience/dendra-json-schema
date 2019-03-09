@@ -65,6 +65,7 @@
     "created_at": {"$ref": "types.json#/definitions/createdAt"},
     "created_by": {"$ref": "types.json#/definitions/createdBy"},
     "description": {"$ref": "#/definitions/description"},
+    "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
     "label": {"$ref": "#/definitions/label"},
     "scheme_id": {"$ref": "#/definitions/scheme_id"},
     "terms": {"$ref": "#/definitions/terms"},
@@ -74,6 +75,7 @@
   },
   "required": [
     "_id",
+    "is_enabled",
     "label",
     "scheme_id",
     "vocabulary_type"
@@ -87,6 +89,7 @@
       "method": "POST",
       "required": [
         "_id",
+        "is_enabled",
         "label",
         "scheme_id",
         "vocabulary_type"
@@ -96,6 +99,7 @@
         "properties": {
           "_id": {"$ref": "#/definitions/_id"},
           "description": {"$ref": "#/definitions/description"},
+          "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "label": {"$ref": "#/definitions/label"},
           "scheme_id": {"$ref": "#/definitions/scheme_id"},
           "terms": {"$ref": "#/definitions/terms"},
@@ -114,8 +118,10 @@
         "type": "object",
         "properties": {
           "description": {"$ref": "#/definitions/description"},
+          "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "label": {"$ref": "#/definitions/label"},
-          "terms": {"$ref": "#/definitions/terms"}
+          "terms": {"$ref": "#/definitions/terms"},
+          "vocabulary_type": {"$ref": "#/definitions/vocabulary_type"}
         }
       },
       "targetSchema": {"rel": "self"}
@@ -128,6 +134,7 @@
       "method": "PUT",
       "required": [
         "_id",
+        "is_enabled",
         "label",
         "scheme_id",
         "vocabulary_type"
@@ -137,6 +144,7 @@
         "properties": {
           "_id": {"$ref": "#/definitions/_id"},
           "description": {"$ref": "#/definitions/description"},
+          "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "label": {"$ref": "#/definitions/label"},
           "scheme_id": {"$ref": "#/definitions/scheme_id"},
           "terms": {"$ref": "#/definitions/terms"},

@@ -10,6 +10,7 @@
         "value": {
           "_id": {"$ref": "#/definitions/_id"},
           "description": {"$ref": "#/definitions/description"},
+          "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "label": {"$ref": "#/definitions/label"},
           "scheme_id": {"$ref": "#/definitions/scheme_id"},
           "terms": {"$ref": "#/definitions/terms"},

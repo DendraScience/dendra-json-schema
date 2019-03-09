@@ -13,11 +13,6 @@
       "$ref": "types.json#/definitions/objectId",
       "example": "592f155746a1b867a114e0a0"
     },
-    "countryCode3": {
-      "description": "An ISO 3166-1 alpha-3 country code",
-      "example": "USA",
-      "type": "string"
-    },
     "createdAt": {
       "$ref": "#/definitions/isoDatetimeUTC",
       "description": "Timestamp of when the document was created"
@@ -389,6 +384,11 @@
         }
       ],
       "type": "array"
+    },
+    "isoCountryCode3": {
+      "description": "An ISO 3166-1 alpha-3 country code",
+      "example": "USA",
+      "type": "string"
     },
     "isoDate": {
       "example": "2017-05-28",

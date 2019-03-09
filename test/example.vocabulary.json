@@ -3,6 +3,7 @@
   "created_at": "2017-05-28T09:50:23.106Z",
   "created_by": "592f155746a1b867a114e010",
   "description": "Terms describing how multiple values are grouped together to form a single value.",
+  "is_enabled": true,
   "label": "Aggregate",
   "scheme_id": "ds",
   "terms": [

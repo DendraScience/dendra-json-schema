@@ -17,7 +17,6 @@
     "5ae879aefe27f41596102d77"
   ],
   "description": "Serviced the GeoNor with a fresh charge of methanol/antifreeze. The new measured  depth is the baseline (zero accumulated) amount i.e. Geo_PCPin = 17.94 is equivalent to zero accumulated precipitation.",
-  "enabled": true,
   "external_refs": [
     {
       "identifier": "554",
@@ -46,9 +45,10 @@
   ],
   "intervals": [
     {
-      "ends_before": "2018-10-23T15:30:00.000Z"
+      "begins_at": "2018-10-23T14:30:00.000Z"
     }
   ],
+  "is_enabled": true,
   "organization_id": "58db17c424dc720001671378",
   "state": "approved",
   "station_ids": [

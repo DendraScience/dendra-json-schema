@@ -1,5 +1,6 @@
 {
   "_id": "dt",
   "description": "A collection of controlled vocabularies for data types in the Dendra system.",
+  "is_enabled": true,
   "name": "Dendro Type Controlled Vocabularies"
 }
