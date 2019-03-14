@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "datastream.json",
   "title": "Datastream",
   "description": "A continuous series of datapoints indexed in time order.",
@@ -11,32 +11,21 @@
     "attributes": {
       "$ref": "types.json#/definitions/datastreamAttributes"
     },
-    "attributes_info": {
+    "attributes_built": {
       "type": "object",
       "description": "System generated information about this datastream's attributes",
       "example": {
-        "sort": {
-          "value1": 10,
-          "value2": 0
-        },
-        "text": "10 m",
-        "unit_term": {
-          "abbreviation": "m",
-          "label": "Meter",
-          "scheme_id": "dt",
-          "vocabulary_id": "dt-unit",
-          "vocabulary_label": "Unit",
-          "vocabulary_type": "unit"
+        "height": {
+          "sort": {
+            "value1": 10,
+            "value2": 0
+          },
+          "text": "10",
+          "unit_tag": "dt_Unit_Meter",
+          "unit_term": {},
+          "unit_uom": {},
+          "value": 10
         }
-      }
-    },
-    "convertible_to_uoms": {
-      "type": "array",
-      "description": "One or more populated unit of measurement objects based on the convertible to uom identifiers",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "example": {}
       }
     },
     "datapoints_config": {
@@ -101,11 +90,6 @@
     "description": {
       "$ref": "types.json#/definitions/description",
       "example": "Blue Oak Ranch average air temperature in degree Fahrenheit at 10 meter height."
-    },
-    "enabled": {
-      "type": "boolean",
-      "description": "Whether this datastream is enabled (shown) in any user interface",
-      "example": true
     },
     "external_refs": {
       "$ref": "types.json#/definitions/externalRefs",
@@ -244,7 +228,9 @@
   "properties": {
     "_id": {"$ref": "#/definitions/_id"},
     "created_at": {"$ref": "types.json#/definitions/createdAt"},
+    "created_by": {"$ref": "types.json#/definitions/createdBy"},
     "updated_at": {"$ref": "types.json#/definitions/updatedAt"},
+    "updated_by": {"$ref": "types.json#/definitions/updatedBy"},
     "version_id": {"$ref": "types.json#/definitions/versionId"},
     "attributes": {"$ref": "#/definitions/attributes"},
     "attributes_info": {"$ref": "#/definitions/attributes_info"},

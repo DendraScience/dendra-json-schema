@@ -3,7 +3,7 @@
   "access_levels": {
     "explicit": [
       {
-        "level": 3,
+        "level": 2,
         "organization_id": "592f155746a1b867a114e030"
       },
       {
@@ -15,7 +15,7 @@
         "team_id": "592f155746a1b867a114e0c0"
       }
     ],
-    "member_level": 0,
+    "member_level": 3,
     "public_level": 0
   },
   "attributes": {

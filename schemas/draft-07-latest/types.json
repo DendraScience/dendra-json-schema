@@ -2,15 +2,40 @@
   "$id": "types.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "accessLevel": {
+      "description": "A data access/visibility level: 0-restricted, 1-metadata, 2-graph, 3-downloader",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "example": 0
+    },
+    "accessLevels": {
+      "additionalProperties": false,
+      "description": "Data access/visibility specifications for various entities",
+      "properties": {
+        "explicit": {
+          "$ref": "#/definitions/explicitAccessLevels"
+        },
+        "member_level": {
+          "$ref": "#/definitions/accessLevel"
+        },
+        "public_level": {
+          "$ref": "#/definitions/accessLevel"
+        }
+      },
+      "type": "object"
+    },
     "aggregateId": {
-      "type": "string",
       "description": "The unique aggregate identifier",
       "example": "rollupDatapoints-0C97-4378-F4DA-A1FD-7353-EFBB-B379-9CBD-4B78-1927-44D2-790D-25BA-A086-BCEC-0D93",
       "maxLength": 120,
       "type": "string"
     },
     "annotationId": {
-      "$ref": "types.json#/definitions/objectId",
+      "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e0a0"
     },
     "createdAt": {
@@ -41,7 +66,7 @@
       "type": "object"
     },
     "dashboardId": {
-      "$ref": "types.json#/definitions/objectId",
+      "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e090"
     },
     "datapointPaginationMeta": {
@@ -81,8 +106,12 @@
           "example": -121.8863286,
           "type": "number"
         },
+        "som_id": {
+          "$ref": "#/definitions/somId",
+          "description": "Attempt to convert the datapoint values to this system of measurement"
+        },
         "time[$op]": {
-          "$ref": "types.json#/definitions/isoDatetimeUTC",
+          "$ref": "#/definitions/isoDatetimeUTC",
           "description": "Filter on time using query operators: $lt, $lte, $gt, $gte",
           "example": "2017-05-11T00:00:00Z"
         },
@@ -91,6 +120,10 @@
           "description": "Whether the time parameter is in local time",
           "example": true,
           "type": "boolean"
+        },
+        "uom_id": {
+          "$ref": "#/definitions/uomId",
+          "description": "Attempt to convert the datapoint values to this unit of measurement"
         }
       },
       "type": "object"
@@ -106,60 +139,23 @@
       "type": "object"
     },
     "datastreamId": {
-      "$ref": "types.json#/definitions/objectId",
+      "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e020"
     },
     "datastreamLookupParameters": {
       "additionalProperties": false,
       "properties": {
-        "_id": {
-          "description": "A comma separated list of datastream identifiers",
-          "example": [
-            "592f155746a1b867a114e020",
-            "592f155746a1b867a114e021"
-          ],
-          "items": {
-            "$ref": "types.json#/definitions/datastreamId"
-          },
-          "type": "array"
+        "datastream_field_name": {
+          "$ref": "#/definitions/queryField"
         },
-        "attributes_exists": {
-          "description": "Whether the datastreams have attributes or not",
-          "example": false,
-          "type": "boolean"
+        "datastream_field_name[$op]": {
+          "$ref": "#/definitions/queryFieldOp"
         },
-        "source": {
-          "description": "A comma separated list of datastream sources (can be combined with attributes_exist and tags)",
-          "example": [
-            "edu.berkeley.sensor.ucnrs.legacy.odm",
-            "gov.noaa.nws.ndfd.rest.xml"
-          ],
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
+        "datastream_id": {
+          "$ref": "#/definitions/queryField"
         },
-        "station_id": {
-          "description": "A comma separated list of station identifiers (can be combined with attributes_exist and tags)",
-          "example": [
-            "592f155746a1b867a114e060",
-            "592f155746a1b867a114e061"
-          ],
-          "items": {
-            "$ref": "types.json#/definitions/stationId"
-          },
-          "type": "array"
-        },
-        "tags": {
-          "description": "A dot separated list of vocabulary tags",
-          "example": "ds_Aggregate_Average.ds_Medium_Air.ds_Variable_Temperature",
-          "type": "string"
-        },
-        "tags_exact": {
-          "default": false,
-          "description": "Perform an EXACT match on the given vocabulary tags",
-          "example": true,
-          "type": "boolean"
+        "datastream_id[$op]": {
+          "$ref": "#/definitions/queryFieldOp"
         }
       },
       "type": "object"
@@ -187,43 +183,87 @@
       "example": "collin@berkeley.edu",
       "type": "string"
     },
-    "externalLinks": {
-      "description": "A list of external site links to display in any user interface",
-      "items": {
-        "additionalProperties": false,
-        "properties": {
-          "title": {
-            "type": "string"
-          },
-          "url": {
-            "$ref": "#/definitions/url"
-          }
+    "explicitAccessLevel": {
+      "description": "An explicit data access/visibility specification",
+      "example": [
+        {
+          "level": 2,
+          "organization_id": "592f155746a1b867a114e030"
         },
-        "required": [
-          "title",
-          "url"
-        ],
-        "type": "object"
+        {
+          "level": 2,
+          "person_id": "592f155746a1b867a114e040"
+        },
+        {
+          "level": 2,
+          "team_id": "592f155746a1b867a114e0c0"
+        }
+      ],
+      "items": {
+        "allOf": [
+          {
+            "$ref": "types.json#/definitions/organizationPersonOrTeam"
+          },
+          {
+            "$ref": "types.json#/definitions/accessLevel"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "explicitAccessLevels": {
+      "description": "A list of explicit data access/visibility specifications",
+      "items": {
+        "$ref": "#/definitions/explicitAccessLevel"
       },
       "minItems": 1,
       "type": "array"
     },
+    "externalLink": {
+      "additionalProperties": false,
+      "description": "An external site link to display in any user interface",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "$ref": "#/definitions/url"
+        }
+      },
+      "required": [
+        "title",
+        "url"
+      ],
+      "type": "object"
+    },
+    "externalLinks": {
+      "description": "A list of external site links to display in any user interface",
+      "items": {
+        "$ref": "#/definitions/externalLink"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "externalRef": {
+      "additionalProperties": false,
+      "description": "An external or foreign key associated with this document",
+      "properties": {
+        "identifier": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "url": {
+          "$ref": "#/definitions/url"
+        }
+      },
+      "type": "object"
+    },
     "externalRefs": {
       "description": "A list of external or foreign keys associated with this document",
       "items": {
-        "additionalProperties": false,
-        "properties": {
-          "identifier": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "url": {
-            "$ref": "#/definitions/url"
-          }
-        },
-        "type": "object"
+        "$ref": "#/definitions/externalRef"
       },
       "minItems": 1,
       "type": "array"
@@ -292,13 +332,13 @@
     "geoObject": {
       "oneOf": [
         {
-          "$ref": "types.json#/definitions/geoPoint"
+          "$ref": "#/definitions/geoPoint"
         },
         {
-          "$ref": "types.json#/definitions/geoPolygon"
+          "$ref": "#/definitions/geoPolygon"
         },
         {
-          "$ref": "types.json#/definitions/geoMultiPolygon"
+          "$ref": "#/definitions/geoMultiPolygon"
         }
       ]
     },
@@ -378,12 +418,17 @@
       "description": "System generated hashes for uniquing and indexing this document",
       "example": [
         {
-          "key": "doc",
+          "digest": "A54D88E06612D820BC3BE72877C74F257B561B19",
           "scheme_id": "ds",
-          "str": "A54D88E06612D820BC3BE72877C74F257B561B19"
+          "type": "doc"
         }
       ],
       "type": "array"
+    },
+    "isEnabled": {
+      "description": "Whether this document is enabled (functional) in the system",
+      "example": true,
+      "type": "boolean"
     },
     "isoCountryCode3": {
       "description": "An ISO 3166-1 alpha-3 country code",
@@ -404,11 +449,6 @@
       "example": "2017-05-28T09:50:23.106Z",
       "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}[T][0-9]{2}:[0-9]{2}:[0-9]{2}|.|[0-9]{0,3}Z$",
       "type": "string"
-    },
-    "isEnabled": {
-      "type": "boolean",
-      "description": "Whether this document is enabled (functional) in the system",
-      "example": true
     },
     "label": {
       "description": "A metadata label assigned to entities and used to construct tags",
@@ -527,8 +567,43 @@
       },
       "type": "object"
     },
-    "members": {
-      "description": "Access control and role assignments",
+    "membershipId": {
+      "$ref": "#/definitions/objectId",
+      "example": "592f155746a1b867a114e080"
+    },
+    "objectId": {
+      "description": "The unique document identifier",
+      "example": "592f155746a1b867a114e010",
+      "maxLength": 24,
+      "pattern": "^[a-fA-F0-9]{24}$",
+      "type": "string"
+    },
+    "operationalRole": {
+      "allOf": [
+        {
+          "$ref": "types.json#/definitions/organizationPersonOrTeam"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "roles": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "roles"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "An operational role assignment"
+    },
+    "operationalRoles": {
+      "description": "A list of operational role assignments",
       "example": [
         {
           "organization_id": "592f155746a1b867a114e030",
@@ -542,46 +617,36 @@
             "admin",
             "contact"
           ]
+        },
+        {
+          "roles": [
+            "contact"
+          ],
+          "team_id": "592f155746a1b867a114e0c0"
         }
       ],
       "items": {
-        "additionalProperties": false,
-        "properties": {
-          "organization_id": {
-            "$ref": "#/definitions/organizationId"
-          },
-          "person_id": {
-            "$ref": "#/definitions/personId"
-          },
-          "roles": {
-            "items": {
-              "type": "string"
-            },
-            "minItems": 1,
-            "type": "array"
-          }
-        },
-        "required": [
-          "roles"
-        ],
-        "type": "object"
+        "$ref": "#/definitions/operationalRole"
       },
+      "minItems": 1,
       "type": "array"
     },
-    "membershipId": {
-      "$ref": "types.json#/definitions/objectId",
-      "example": "592f155746a1b867a114e080"
-    },
-    "objectId": {
-      "description": "The unique document identifier",
-      "example": "592f155746a1b867a114e010",
-      "maxLength": 24,
-      "pattern": "^[a-fA-F0-9]{24}$",
-      "type": "string"
-    },
     "organizationId": {
-      "$ref": "types.json#/definitions/objectId",
+      "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e030"
+    },
+    "organizationPersonOrTeam": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/organizationId"
+        },
+        {
+          "$ref": "#/definitions/personId"
+        },
+        {
+          "$ref": "#/definitions/teamId"
+        }
+      ]
     },
     "paginationLimit": {
       "description": "Maximum number of items per page",
@@ -614,11 +679,11 @@
       "type": "integer"
     },
     "personId": {
-      "$ref": "types.json#/definitions/objectId",
+      "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e040"
     },
     "placeId": {
-      "$ref": "types.json#/definitions/objectId",
+      "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e050"
     },
     "queryField": {
@@ -682,7 +747,7 @@
       "example": 1
     },
     "schemeId": {
-      "$ref": "types.json#/definitions/stringId",
+      "$ref": "#/definitions/stringId",
       "example": "ds"
     },
     "slug": {
@@ -692,11 +757,11 @@
       "type": "string"
     },
     "somId": {
-      "$ref": "types.json#/definitions/stringId",
+      "$ref": "#/definitions/stringId",
       "example": "imp"
     },
     "stationId": {
-      "$ref": "types.json#/definitions/objectId",
+      "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e060"
     },
     "stringId": {
@@ -713,9 +778,17 @@
       "minItems": 1,
       "type": "array"
     },
+    "teamId": {
+      "$ref": "#/definitions/objectId",
+      "example": "592f155746a1b867a114e0c0"
+    },
     "thingId": {
-      "$ref": "types.json#/definitions/objectId",
+      "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e070"
+    },
+    "thingTypeId": {
+      "$ref": "#/definitions/objectId",
+      "example": "592f155746a1b867a114e0d0"
     },
     "timeZoneAbbr": {
       "description": "A time zone abbreviation",
@@ -731,12 +804,8 @@
       "example": "America/Los_Angeles",
       "type": "string"
     },
-    "unset": {
-      "const": "",
-      "type": "string"
-    },
     "uomId": {
-      "$ref": "types.json#/definitions/stringId",
+      "$ref": "#/definitions/stringId",
       "example": "degree-fahrenheit"
     },
     "updatedAt": {
@@ -770,7 +839,7 @@
       "type": "array"
     },
     "userId": {
-      "$ref": "types.json#/definitions/objectId",
+      "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e040"
     },
     "utcOffset": {
@@ -779,12 +848,12 @@
       "type": "integer"
     },
     "versionId": {
-      "$ref": "types.json#/definitions/objectId",
+      "$ref": "#/definitions/objectId",
       "description": "The automatically assigned version identifier",
       "example": "592f155746a1b867a114e0b0"
     },
     "vocabularyId": {
-      "$ref": "types.json#/definitions/stringId",
+      "$ref": "#/definitions/stringId",
       "example": "ds-aggregate"
     }
   },

@@ -10,6 +10,7 @@
     "requested_at": "2017-05-28T09:50:23.106Z"
   },
   "created_at": "2017-05-28T09:50:23.106Z",
+  "created_by": "592f155746a1b867a114e010",
   "description": "Blue Oak Ranch daily cumulative precipitation.",
   "expires_at": "2017-05-28T09:50:23.106Z",
   "method": "rollupDatapoints",
@@ -38,5 +39,6 @@
     "time_gte": "2017-01-01",
     "time_lt": "2018-01-01"
   },
-  "updated_at": "2018-05-06T21:38:03.065Z"
+  "updated_at": "2017-05-28T09:50:23.106Z",
+  "updated_by": "592f155746a1b867a114e010"
 }

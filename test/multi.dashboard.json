@@ -85,7 +85,7 @@
       }
     ]
   },
-  "enabled": true,
+  "is_enabled": true,
   "name": "Well Status",
   "organization_id": "592f155746a1b867a114e030",
   "slug": "well-status",
