@@ -67,13 +67,6 @@
       "rel": "self",
       "href": "users",
       "method": "POST",
-      "required": [
-        "email",
-        "is_enabled",
-        "name",
-        "password",
-        "roles"
-      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -84,7 +77,14 @@
           "password": {"$ref": "#/definitions/password"},
           "person_id": {"$ref": "#/definitions/person_id"},
           "roles": {"$ref": "#/definitions/roles"}
-        }
+        },
+        "required": [
+          "email",
+          "is_enabled",
+          "name",
+          "password",
+          "roles"
+        ]
       },
       "targetSchema": {"rel": "self"}
     },
@@ -114,16 +114,10 @@
       "rel": "self",
       "href": "users/{#/definitions/_id}",
       "method": "PUT",
-      "required": [
-        "email",
-        "is_enabled",
-        "name",
-        "password",
-        "roles"
-      ],
       "schema": {
         "type": "object",
         "properties": {
+          "_id": {"$ref": "#/definitions/_id"},
           "email": {"$ref": "#/definitions/email"},
           "full_name": {"$ref": "#/definitions/full_name"},
           "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
@@ -131,7 +125,14 @@
           "password": {"$ref": "#/definitions/password"},
           "person_id": {"$ref": "#/definitions/person_id"},
           "roles": {"$ref": "#/definitions/roles"}
-        }
+        },
+        "required": [
+          "email",
+          "is_enabled",
+          "name",
+          "password",
+          "roles"
+        ]
       },
       "targetSchema": {"rel": "self"}
     },

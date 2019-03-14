@@ -59,10 +59,6 @@
       "rel": "self",
       "href": "organizations",
       "method": "POST",
-      "required": [
-        "is_enabled",
-        "name"
-      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -73,7 +69,11 @@
           "name": {"$ref": "#/definitions/name"},
           "slug": {"$ref": "#/definitions/slug"},
           "url": {"$ref": "#/definitions/url"}
-        }
+        },
+        "required": [
+          "is_enabled",
+          "name"
+        ]
       },
       "targetSchema": {"rel": "self"}
     },
@@ -103,13 +103,10 @@
       "rel": "self",
       "href": "organizations/{#/definitions/_id}",
       "method": "PUT",
-      "required": [
-        "is_enabled",
-        "name"
-      ],
       "schema": {
         "type": "object",
         "properties": {
+          "_id": {"$ref": "#/definitions/_id"},
           "description": {"$ref": "#/definitions/description"},
           "email": {"$ref": "#/definitions/email"},
           "full_name": {"$ref": "#/definitions/full_name"},
@@ -117,7 +114,11 @@
           "name": {"$ref": "#/definitions/name"},
           "slug": {"$ref": "#/definitions/slug"},
           "url": {"$ref": "#/definitions/url"}
-        }
+        },
+        "required": [
+          "is_enabled",
+          "name"
+        ]
       },
       "targetSchema": {"rel": "self"}
     },

@@ -58,11 +58,6 @@
       "rel": "self",
       "href": "schemes",
       "method": "POST",
-      "required": [
-        "_id",
-        "is_enabled",
-        "name"
-      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -73,7 +68,12 @@
           "priority": {"$ref": "#/definitions/priority"},
           "url": {"$ref": "#/definitions/url"},
           "version": {"$ref": "#/definitions/version"}
-        }
+        },
+        "required": [
+          "_id",
+          "is_enabled",
+          "name"
+        ]
       },
       "targetSchema": {"rel": "self"}
     },
@@ -102,11 +102,6 @@
       "rel": "self",
       "href": "schemes/{#/definitions/_id}",
       "method": "PUT",
-      "required": [
-        "_id",
-        "is_enabled",
-        "name"
-      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -117,7 +112,11 @@
           "priority": {"$ref": "#/definitions/priority"},
           "url": {"$ref": "#/definitions/url"},
           "version": {"$ref": "#/definitions/version"}
-        }
+        },
+        "required": [
+          "is_enabled",
+          "name"
+        ]
       },
       "targetSchema": {"rel": "self"}
     },

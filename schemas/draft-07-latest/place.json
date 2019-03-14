@@ -86,12 +86,6 @@
       "rel": "self",
       "href": "places",
       "method": "POST",
-      "required": [
-        "geo",
-        "is_enabled",
-        "name",
-        "place_type"
-      ],
       "schema": {
         "type": "object",
         "properties": {
@@ -105,7 +99,13 @@
           "name": {"$ref": "#/definitions/name"},
           "place_type": {"$ref": "#/definitions/place_type"},
           "url": {"$ref": "#/definitions/url"}
-        }
+        },
+        "required": [
+          "geo",
+          "is_enabled",
+          "name",
+          "place_type"
+        ]
       },
       "targetSchema": {"rel": "self"}
     },
@@ -138,15 +138,10 @@
       "rel": "self",
       "href": "places/{#/definitions/_id}",
       "method": "PUT",
-      "required": [
-        "geo",
-        "is_enabled",
-        "name",
-        "place_type"
-      ],
       "schema": {
         "type": "object",
         "properties": {
+          "_id": {"$ref": "#/definitions/_id"},
           "abbreviation": {"$ref": "#/definitions/abbreviation"},
           "attributes": {"$ref": "#/definitions/attributes"},
           "country_code": {"$ref": "#/definitions/country_code"},
@@ -157,7 +152,13 @@
           "name": {"$ref": "#/definitions/name"},
           "place_type": {"$ref": "#/definitions/place_type"},
           "url": {"$ref": "#/definitions/url"}
-        }
+        },
+        "required": [
+          "geo",
+          "is_enabled",
+          "name",
+          "place_type"
+        ]
       },
       "targetSchema": {"rel": "self"}
     },

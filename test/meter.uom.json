@@ -6,6 +6,7 @@
     "inch"
   ],
   "created_at": "2017-07-21T03:16:36.664Z",
+  "created_by": "592f155746a1b867a114e010",
   "library_config": {
     "mathjs": {
       "round_n": 1,
@@ -16,5 +17,6 @@
   "unit_tags": [
     "dt_Unit_Meter"
   ],
-  "updated_at": "2017-07-21T03:16:36.664Z"
+  "updated_at": "2017-07-21T03:16:36.664Z",
+  "updated_by": "592f155746a1b867a114e010"
 }

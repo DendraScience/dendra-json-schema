@@ -1,17 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "person.update.json",
+  "$id": "som.create.json",
   "$patch": {
-    "source": {"$ref": "person.json#"},
+    "source": {"$ref": "som.json#"},
     "with": [
       {
         "op": "replace",
         "path": "/properties",
         "value": {
           "_id": {"$ref": "#/definitions/_id"},
-          "email": {"$ref": "#/definitions/email"},
-          "full_name": {"$ref": "#/definitions/full_name"},
-          "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"}
         }
       }
