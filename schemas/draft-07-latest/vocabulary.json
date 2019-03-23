@@ -144,6 +144,7 @@
           "vocabulary_type": {"$ref": "#/definitions/vocabulary_type"}
         },
         "required": [
+          "_id",
           "is_enabled",
           "label",
           "scheme_id",

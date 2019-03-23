@@ -21,8 +21,8 @@
           "roles": {"$ref": "#/definitions/roles"},
           "$unset": {
             "properties": {
-              "full_name": {"$ref": "#/definitions/full_name"},
-              "person_id": {"$ref": "#/definitions/person_id"}
+              "full_name": {"$ref": "types.json#/definitions/unset"},
+              "person_id": {"$ref": "types.json#/definitions/unset"}
             },
             "type": "object"
           }

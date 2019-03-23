@@ -114,6 +114,7 @@
           "version": {"$ref": "#/definitions/version"}
         },
         "required": [
+          "_id",
           "is_enabled",
           "name"
         ]

@@ -113,6 +113,7 @@
           "unit_tags": {"$ref": "#/definitions/unit_tags"}
         },
         "required": [
+          "_id",
           "som_id"
         ]
       },

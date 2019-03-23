@@ -18,8 +18,8 @@
           "name": {"$ref": "#/definitions/name"},
           "$unset": {
             "properties": {
-              "email": {"$ref": "#/definitions/email"},
-              "full_name": {"$ref": "#/definitions/full_name"}
+              "email": {"$ref": "types.json#/definitions/unset"},
+              "full_name": {"$ref": "types.json#/definitions/unset"}
             },
             "type": "object"
           }

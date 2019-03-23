@@ -19,8 +19,8 @@
           "vocabulary_type": {"$ref": "#/definitions/vocabulary_type"},
           "$unset": {
             "properties": {
-              "description": {"$ref": "#/definitions/description"},
-              "terms": {"$ref": "#/definitions/terms"}
+              "description": {"$ref": "types.json#/definitions/unset"},
+              "terms": {"$ref": "types.json#/definitions/unset"}
             },
             "type": "object"
           }

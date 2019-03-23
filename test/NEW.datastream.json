@@ -154,7 +154,6 @@
     ],
     "unit_resolved": {
       "scheme_id": "dt",
-      "term": {},
       "term_label": "DegreeFahrenheit",
       "vocabulary_id": "dt-unit",
       "vocabulary_label": "Unit",
@@ -170,11 +169,5 @@
   "thing_id": "592f155746a1b867a114e070",
   "thing_type_id": "592f155746a1b867a114e070",
   "updated_at": "2017-05-28T09:50:23.106Z",
-  "updated_by": "592f155746a1b867a114e010",
-  "urls": [
-    {
-      "label": "Wiki",
-      "url": "https://en.wikipedia.org/wiki/Conversion_of_units_of_temperature"
-    }
-  ]
+  "updated_by": "592f155746a1b867a114e010"
 }

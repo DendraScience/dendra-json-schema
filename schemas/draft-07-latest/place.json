@@ -21,9 +21,6 @@
         "state_abbreviation": "CA"
       }
     },
-    "country_code": {
-      "$ref": "types.json#/definitions/isoCountryCode3"
-    },
     "external_refs": {
       "$ref": "types.json#/definitions/externalRefs",
       "example": [
@@ -37,9 +34,6 @@
     "full_name": {
       "type": "string",
       "example": "San Jose, California, USA"
-    },
-    "geo": {
-      "$ref": "types.json#/definitions/geoObject"
     },
     "name": {
       "type": "string",
@@ -60,12 +54,12 @@
     "_id": {"$ref": "#/definitions/_id"},
     "abbreviation": {"$ref": "#/definitions/abbreviation"},
     "attributes": {"$ref": "#/definitions/attributes"},
-    "country_code": {"$ref": "#/definitions/country_code"},
+    "country_code": {"$ref": "types.json#/definitions/isoCountryCode3"},
     "created_at": {"$ref": "types.json#/definitions/createdAt"},
     "created_by": {"$ref": "types.json#/definitions/createdBy"},
     "external_refs": {"$ref": "#/definitions/external_refs"},
     "full_name": {"$ref": "#/definitions/full_name"},
-    "geo": {"$ref": "#/definitions/geo"},
+    "geo": {"$ref": "types.json#/definitions/geo"},
     "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
     "name": {"$ref": "#/definitions/name"},
     "place_type": {"$ref": "#/definitions/place_type"},
@@ -91,10 +85,10 @@
         "properties": {
           "abbreviation": {"$ref": "#/definitions/abbreviation"},
           "attributes": {"$ref": "#/definitions/attributes"},
-          "country_code": {"$ref": "#/definitions/country_code"},
+          "country_code": {"$ref": "types.json#/definitions/isoCountryCode3"},
           "external_refs": {"$ref": "#/definitions/external_refs"},
           "full_name": {"$ref": "#/definitions/full_name"},
-          "geo": {"$ref": "#/definitions/geo"},
+          "geo": {"$ref": "types.json#/definitions/geo"},
           "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"},
           "place_type": {"$ref": "#/definitions/place_type"},
@@ -120,10 +114,10 @@
         "properties": {
           "abbreviation": {"$ref": "#/definitions/abbreviation"},
           "attributes": {"$ref": "#/definitions/attributes"},
-          "country_code": {"$ref": "#/definitions/country_code"},
+          "country_code": {"$ref": "types.json#/definitions/isoCountryCode3"},
           "external_refs": {"$ref": "#/definitions/external_refs"},
           "full_name": {"$ref": "#/definitions/full_name"},
-          "geo": {"$ref": "#/definitions/geo"},
+          "geo": {"$ref": "types.json#/definitions/geo"},
           "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"},
           "place_type": {"$ref": "#/definitions/place_type"},
@@ -144,10 +138,10 @@
           "_id": {"$ref": "#/definitions/_id"},
           "abbreviation": {"$ref": "#/definitions/abbreviation"},
           "attributes": {"$ref": "#/definitions/attributes"},
-          "country_code": {"$ref": "#/definitions/country_code"},
+          "country_code": {"$ref": "types.json#/definitions/isoCountryCode3"},
           "external_refs": {"$ref": "#/definitions/external_refs"},
           "full_name": {"$ref": "#/definitions/full_name"},
-          "geo": {"$ref": "#/definitions/geo"},
+          "geo": {"$ref": "types.json#/definitions/geo"},
           "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"},
           "place_type": {"$ref": "#/definitions/place_type"},

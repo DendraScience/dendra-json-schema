@@ -20,11 +20,11 @@
           "name": {"$ref": "#/definitions/name"},
           "$unset": {
             "properties": {
-              "build_at": {"$ref": "#/definitions/build_at"},
-              "build_every": {"$ref": "#/definitions/build_every"},
-              "description": {"$ref": "#/definitions/description"},
-              "expires_at": {"$ref": "#/definitions/expires_at"},
-              "name": {"$ref": "#/definitions/name"}
+              "build_at": {"$ref": "types.json#/definitions/unset"},
+              "build_every": {"$ref": "types.json#/definitions/unset"},
+              "description": {"$ref": "types.json#/definitions/unset"},
+              "expires_at": {"$ref": "types.json#/definitions/unset"},
+              "name": {"$ref": "types.json#/definitions/unset"}
             },
             "type": "object"
           }

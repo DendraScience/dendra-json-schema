@@ -20,10 +20,10 @@
           "version": {"$ref": "#/definitions/version"},
           "$unset": {
             "properties": {
-              "description": {"$ref": "#/definitions/description"},
-              "priority": {"$ref": "#/definitions/priority"},
-              "url": {"$ref": "#/definitions/url"},
-              "version": {"$ref": "#/definitions/version"}
+              "description": {"$ref": "types.json#/definitions/unset"},
+              "priority": {"$ref": "types.json#/definitions/unset"},
+              "url": {"$ref": "types.json#/definitions/unset"},
+              "version": {"$ref": "types.json#/definitions/unset"}
             },
             "type": "object"
           }

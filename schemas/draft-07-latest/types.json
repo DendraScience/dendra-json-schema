@@ -128,8 +128,49 @@
       },
       "type": "object"
     },
+    "datapointsConfig": {
+      "description": "User-defined service configuration for fetching datapoints",
+      "items": {
+        "$ref": "#/definitions/datapointsConfigInstance"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "datapointsConfigInstance": {
+      "additionalProperties": false,
+      "properties": {
+        "begins_at": {
+          "$ref": "#/definitions/isoDatetimeUTC"
+        },
+        "connection": {
+          "example": "legacy",
+          "type": "string"
+        },
+        "ends_before": {
+          "$ref": "#/definitions/isoDatetimeUTC"
+        },
+        "params": {
+          "example": {
+            "query": {
+              "datastream_id": 3090,
+              "time_adjust": -28800
+            }
+          },
+          "type": "object"
+        },
+        "path": {
+          "example": "/datavalues-ucnrs",
+          "type": "string"
+        }
+      },
+      "required": [
+        "params",
+        "path"
+      ],
+      "type": "object"
+    },
     "datastreamAttributes": {
-      "description": "Any custom attributes for the datastream",
+      "description": "User-defined attributes for the datastream",
       "example": {
         "height": {
           "unit_tag": "dt_Unit_Meter",
@@ -162,6 +203,16 @@
     },
     "datastreamSource": {
       "example": "edu.berkeley.sensor.ucnrs.legacy.odm",
+      "type": "string"
+    },
+    "datastreamSourceType": {
+      "description": "The specific type of data producing entity",
+      "enum": [
+        "sensor",
+        "service",
+        "procedure"
+      ],
+      "example": "sensor",
       "type": "string"
     },
     "datastreamTags": {
@@ -202,10 +253,10 @@
       "items": {
         "allOf": [
           {
-            "$ref": "types.json#/definitions/organizationPersonOrTeam"
+            "$ref": "#/definitions/organizationPersonOrTeam"
           },
           {
-            "$ref": "types.json#/definitions/accessLevel"
+            "$ref": "#/definitions/accessLevel"
           }
         ]
       },
@@ -430,6 +481,16 @@
       "example": true,
       "type": "boolean"
     },
+    "isGeoProtected": {
+      "description": "Whether this document's geo coordinate information is protected (sensitive)",
+      "example": false,
+      "type": "boolean"
+    },
+    "isHidden": {
+      "description": "Whether this document is hidden in most queries",
+      "example": false,
+      "type": "boolean"
+    },
     "isoCountryCode3": {
       "description": "An ISO 3166-1 alpha-3 country code",
       "example": "USA",
@@ -581,7 +642,7 @@
     "operationalRole": {
       "allOf": [
         {
-          "$ref": "types.json#/definitions/organizationPersonOrTeam"
+          "$ref": "#/definitions/organizationPersonOrTeam"
         },
         {
           "additionalProperties": false,
@@ -782,6 +843,20 @@
       "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e0c0"
     },
+    "terms": {
+      "description": "Vocabulary term assignments organized by scheme",
+      "example": {
+        "ds": {
+          "Aggregate": "Average",
+          "Medium": "Air",
+          "Variable": "Temperature"
+        },
+        "dt": {
+          "Unit": "DegreeFahrenheit"
+        }
+      },
+      "type": "object"
+    },
     "thingId": {
       "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e070"
@@ -804,6 +879,10 @@
       "example": "America/Los_Angeles",
       "type": "string"
     },
+    "unset": {
+      "const": "",
+      "type": "string"
+    },
     "uomId": {
       "$ref": "#/definitions/stringId",
       "example": "degree-fahrenheit"
@@ -819,24 +898,6 @@
     "url": {
       "format": "uri",
       "type": "string"
-    },
-    "urls": {
-      "items": {
-        "additionalProperties": false,
-        "properties": {
-          "label": {
-            "type": "string"
-          },
-          "url": {
-            "$ref": "#/definitions/url"
-          }
-        },
-        "required": [
-          "url"
-        ],
-        "type": "object"
-      },
-      "type": "array"
     },
     "userId": {
       "$ref": "#/definitions/objectId",

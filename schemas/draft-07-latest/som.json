@@ -73,6 +73,7 @@
           "name": {"$ref": "#/definitions/name"}
         },
         "required": [
+          "_id",
           "name"
         ]
       },
