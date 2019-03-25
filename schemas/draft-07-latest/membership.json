@@ -18,7 +18,8 @@
     },
     "roles": {
       "type": "array",
-      "description": "The person's roles within this organization (e.g. 'admin', 'contact', 'curator', 'manager')",
+      "description": "The person's roles within this organization (e.g. 'admin', 'curator', 'member')",
+      "maxItems": 1,
       "minItems": 1,
       "items": {
         "type": "string",

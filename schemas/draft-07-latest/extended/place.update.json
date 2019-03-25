@@ -14,7 +14,7 @@
           "country_code": {"$ref": "types.json#/definitions/isoCountryCode3"},
           "external_refs": {"$ref": "#/definitions/external_refs"},
           "full_name": {"$ref": "#/definitions/full_name"},
-          "geo": {"$ref": "types.json#/definitions/geo"},
+          "geo": {"$ref": "types.json#/definitions/geoObject"},
           "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "name": {"$ref": "#/definitions/name"},
           "place_type": {"$ref": "#/definitions/place_type"},

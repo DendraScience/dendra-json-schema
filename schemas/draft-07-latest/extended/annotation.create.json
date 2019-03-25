@@ -8,7 +8,7 @@
         "op": "replace",
         "path": "/properties",
         "value": {
-          "actions": {"$ref": "#/definitions/actions"},
+          "actions": {"$ref": "types.json#/definitions/annotationActions"},
           "datastream_ids": {"$ref": "#/definitions/datastream_ids"},
           "description": {"$ref": "#/definitions/description"},
           "external_refs": {"$ref": "#/definitions/external_refs"},

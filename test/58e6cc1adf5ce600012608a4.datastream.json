@@ -7,6 +7,7 @@
     }
   },
   "created_at": "2017-04-06T23:15:38.016Z",
+  "created_by": "5a1e01638e98790001729b86",
   "datapoints_config": [
     {
       "begins_at": "2013-01-01T00:00:00Z",
@@ -21,7 +22,6 @@
     }
   ],
   "description": "This Datastream is derived from the legacy datastreamid: 3837",
-  "enabled": true,
   "external_refs": [
     {
       "identifier": "3837",
@@ -32,16 +32,24 @@
       "type": "odm.stations.stationid"
     }
   ],
+  "is_enabled": true,
+  "is_geo_protected": false,
+  "is_hidden": false,
   "name": "Soil Temp Deg C 2 in Santa Cruz Island Avg Seasonal Average",
   "source_type": "procedure",
   "state": "ready",
   "station_id": "58e68cacdf5ce600012602d3",
-  "tags": [
-    "ds_Aggregate_Average",
-    "ds_Function_Seasonal",
-    "ds_Medium_Soil",
-    "ds_Variable_Temperature",
-    "dt_Unit_DegreeCelsius"
-  ],
-  "updated_at": "2017-04-06T23:15:38.016Z"
+  "terms": {
+    "ds": {
+      "Aggregate": "Average",
+      "Function": "Seasonal",
+      "Medium": "Soil",
+      "Variable": "Temperature"
+    },
+    "dt": {
+      "Unit": "DegreeCelsius"
+    }
+  },
+  "updated_at": "2017-04-06T23:15:38.016Z",
+  "updated_by": "5a1e01638e98790001729b86"
 }

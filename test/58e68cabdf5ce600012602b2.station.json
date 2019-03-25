@@ -1,7 +1,7 @@
 {
   "_id": "58e68cabdf5ce600012602b2",
   "created_at": "2017-04-06T18:44:59.511Z",
-  "enabled": false,
+  "created_by": "5a1e01638e98790001729b86",
   "external_links": [
     {
       "title": "Sensor database",
@@ -23,6 +23,9 @@
     "type": "Point"
   },
   "is_active": true,
+  "is_enabled": true,
+  "is_geo_protected": false,
+  "is_hidden": false,
   "is_stationary": true,
   "media": [
     {
@@ -229,8 +232,10 @@
   "name": "Angelo Meadow WS",
   "organization_id": "58db17c424dc720001671378",
   "slug": "angelo-meadow-ws",
+  "state": "ready",
   "station_type": "weather",
   "time_zone": "PST",
   "updated_at": "2017-04-06T18:44:59.511Z",
+  "updated_by": "5a1e01638e98790001729b86",
   "utc_offset": -28800
 }

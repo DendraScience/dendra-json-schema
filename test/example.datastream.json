@@ -15,7 +15,7 @@
         "team_id": "592f155746a1b867a114e0c0"
       }
     ],
-    "member_level": 3,
+    "member_level": 0,
     "public_level": 0
   },
   "attributes": {
@@ -32,15 +32,24 @@
       },
       "text": "10",
       "unit_tag": "dt_Unit_Meter",
-      "unit_term": {},
-      "unit_uom": {},
       "value": 10
     }
   },
   "created_at": "2017-05-28T09:50:23.106Z",
-  "created_by": "592f155746a1b867a114e010",
+  "created_by": "5a1e01638e98790001729b86",
   "datapoints_config": [
-    {}
+    {
+      "begins_at": "2017-05-28T09:50:23.106Z",
+      "connection": "legacy",
+      "ends_before": "2017-05-28T09:50:23.106Z",
+      "params": {
+        "query": {
+          "datastream_id": 3090,
+          "time_adjust": -28800
+        }
+      },
+      "path": "/datavalues-ucnrs"
+    }
   ],
   "datapoints_config_built": [
     {}
@@ -96,7 +105,6 @@
     },
     {
       "roles": [
-        "admin",
         "contact"
       ],
       "team_id": "592f155746a1b867a114e0c0"
@@ -105,9 +113,6 @@
   "organization_id": "592f155746a1b867a114e030",
   "preferred_uom_ids": [
     "degree-fahrenheit"
-  ],
-  "preferred_uoms": [
-    {}
   ],
   "source": "edu.berkeley.sensor.ucnrs.legacy.odm",
   "source_type": "sensor",
@@ -123,51 +128,9 @@
       "Unit": "DegreeFahrenheit"
     }
   },
-  "terms_info": {
-    "class_keys": [
-      "ds__Aggregate_Average__Medium_Air__Variable_Temperature"
-    ],
-    "class_tags": [
-      "ds_Aggregate_Average",
-      "ds_Medium_Air",
-      "ds_Variable_Temperature"
-    ],
-    "resolved": [
-      {
-        "scheme_id": "ds",
-        "term_label": "Average",
-        "vocabulary_id": "ds-aggregate",
-        "vocabulary_label": "Aggregate",
-        "vocabulary_type": "class"
-      },
-      {
-        "scheme_id": "dt",
-        "term_label": "DegreeFahrenheit",
-        "vocabulary_id": "dt-unit",
-        "vocabulary_label": "Unit",
-        "vocabulary_type": "unit"
-      }
-    ],
-    "scheme_ids": [
-      "ds",
-      "dt"
-    ],
-    "unit_resolved": {
-      "scheme_id": "dt",
-      "term_label": "DegreeFahrenheit",
-      "vocabulary_id": "dt-unit",
-      "vocabulary_label": "Unit",
-      "vocabulary_type": "unit"
-    },
-    "unit_tag": "dt_Unit_DegreeFahrenheit",
-    "unit_uom": {},
-    "vocabulary_ids": [
-      "ds-aggregate",
-      "dt-unit"
-    ]
-  },
   "thing_id": "592f155746a1b867a114e070",
-  "thing_type_id": "592f155746a1b867a114e070",
+  "thing_type_id": "592f155746a1b867a114e0d0",
   "updated_at": "2017-05-28T09:50:23.106Z",
-  "updated_by": "592f155746a1b867a114e010"
+  "updated_by": "5a1e01638e98790001729b86",
+  "version_id": "592f155746a1b867a114e0b0"
 }

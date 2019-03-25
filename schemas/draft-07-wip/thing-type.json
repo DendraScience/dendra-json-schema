@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "thing.json",
   "title": "Thing",
-  "description": "An abstract type or physical instance of an instrument or other equipment.",
+  "description": "A physical instance of an instrument or other equipment.",
   "type": "object",
   "definitions": {
     "_id": {
@@ -30,16 +30,6 @@
     },
     "geo": {
       "$ref": "types.json#/definitions/geoPoint"
-    },
-    "instance_of_thing_id": {
-      "$ref": "types.json#/definitions/thingId",
-      "description": "An abstract thing that this physical instance represents",
-      "example": "592f155746a1b867a114e071"
-    },
-    "is_abstract": {
-      "type": "boolean",
-      "description": "Whether this thing is an abstract type or physical instance",
-      "example": false
     },
     "manufacturer": {
       "type": "object",

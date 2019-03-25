@@ -8,48 +8,6 @@
     "_id": {
       "$ref": "types.json#/definitions/annotationId"
     },
-    "actions": {
-      "type": "array",
-      "description": "Specific actions to apply against the identified datapoints",
-      "minItems": 1,
-      "items": {
-        "oneOf": [
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "exclude": {
-                "type": "boolean",
-                "example": true,
-                "const": true
-              }
-            },
-            "required": [
-              "exclude"
-            ]
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "flag": {
-                "type": "array",
-                "minItems": 1,
-                "example": [
-                  "X"
-                ],
-                "items": {
-                  "type": "string"
-                }
-              }
-            },
-            "required": [
-              "flag"
-            ]
-          }
-        ]
-      }
-    },
     "datastream_ids": {
       "type": "array",
       "description": "One or more datastreams to which this annotation applies",
@@ -77,53 +35,8 @@
       ]
     },
     "intervals": {
-      "type": "array",
-      "description": "One or more intervals to which this annotation applies",
-      "minItems": 1,
-      "items": {
-        "oneOf": [
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "begins_at": {
-                "$ref": "types.json#/definitions/isoDatetimeUTC"
-              },
-              "ends_before": {
-                "$ref": "types.json#/definitions/isoDatetimeUTC"
-              }
-            },
-            "required": [
-              "begins_at",
-              "ends_before"
-            ]
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "begins_at": {
-                "$ref": "types.json#/definitions/isoDatetimeUTC"
-              }
-            },
-            "required": [
-              "begins_at"
-            ]
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "ends_before": {
-                "$ref": "types.json#/definitions/isoDatetimeUTC"
-              }
-            },
-            "required": [
-              "ends_before"
-            ]
-          }
-        ]
-      }
+      "$ref": "types.json#/definitions/intervals",
+      "description": "One or more intervals to which this annotation applies"
     },
     "organization_id": {
       "$ref": "types.json#/definitions/organizationId",
@@ -151,7 +64,7 @@
   "additionalProperties": false,
   "properties": {
     "_id": {"$ref": "#/definitions/_id"},
-    "actions": {"$ref": "#/definitions/actions"},
+    "actions": {"$ref": "types.json#/definitions/annotationActions"},
     "created_at": {"$ref": "types.json#/definitions/createdAt"},
     "created_by": {"$ref": "types.json#/definitions/createdBy"},
     "datastream_ids": {"$ref": "#/definitions/datastream_ids"},
@@ -182,7 +95,7 @@
       "schema": {
         "type": "object",
         "properties": {
-          "actions": {"$ref": "#/definitions/actions"},
+          "actions": {"$ref": "types.json#/definitions/annotationActions"},
           "datastream_ids": {"$ref": "#/definitions/datastream_ids"},
           "description": {"$ref": "#/definitions/description"},
           "external_refs": {"$ref": "#/definitions/external_refs"},
@@ -211,7 +124,7 @@
       "schema": {
         "type": "object",
         "properties": {
-          "actions": {"$ref": "#/definitions/actions"},
+          "actions": {"$ref": "types.json#/definitions/annotationActions"},
           "datastream_ids": {"$ref": "#/definitions/datastream_ids"},
           "description": {"$ref": "#/definitions/description"},
           "external_refs": {"$ref": "#/definitions/external_refs"},
@@ -234,7 +147,7 @@
         "type": "object",
         "properties": {
           "_id": {"$ref": "#/definitions/_id"},
-          "actions": {"$ref": "#/definitions/actions"},
+          "actions": {"$ref": "types.json#/definitions/annotationActions"},
           "datastream_ids": {"$ref": "#/definitions/datastream_ids"},
           "description": {"$ref": "#/definitions/description"},
           "external_refs": {"$ref": "#/definitions/external_refs"},

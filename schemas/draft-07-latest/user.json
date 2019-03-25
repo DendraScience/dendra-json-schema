@@ -31,6 +31,7 @@
     "roles": {
       "type": "array",
       "description": "The user's roles within the system (e.g. 'sys-admin')",
+      "maxItems": 1,
       "minItems": 1,
       "items": {
         "type": "string",

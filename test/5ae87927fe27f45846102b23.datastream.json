@@ -1,20 +1,13 @@
 {
   "_id": "5ae87927fe27f45846102b23",
-  "_include": [],
   "attributes": {
     "height": {
       "unit_tag": "dt_Unit_Meter",
       "value": 10
     }
   },
-  "attributes_info": {
-    "sort": {
-      "value1": 10,
-      "value2": 0
-    },
-    "text": "10"
-  },
   "created_at": "2018-07-02T01:05:54.991Z",
+  "created_by": "5a1e01638e98790001729b86",
   "datapoints_config": [
     {
       "begins_at": "2013-05-07T22:10:00.000Z",
@@ -91,7 +84,6 @@
     }
   ],
   "description": "Temperature at 10 meters",
-  "enabled": true,
   "external_refs": [
     {
       "identifier": "3358",
@@ -128,95 +120,46 @@
   ],
   "hashes": [
     {
-      "key": "src",
-      "str": "9ee51d05d216c314371676826908fbe7ad86da94"
+      "digest": "9ee51d05d216c314371676826908fbe7ad86da94",
+      "type": "src"
     },
     {
-      "key": "att",
-      "str": "de050f182f5b52eb5a40a177981b5eca40465ee2"
+      "digest": "de050f182f5b52eb5a40a177981b5eca40465ee2",
+      "type": "att"
     },
     {
-      "key": "geo",
-      "str": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+      "digest": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      "type": "geo"
     },
     {
-      "key": "tag",
+      "digest": "e343b1fd1d68269eac378e849d4bd4ac5e3b53f0",
       "scheme_id": "ds",
-      "str": "e343b1fd1d68269eac378e849d4bd4ac5e3b53f0"
+      "type": "tag"
     },
     {
-      "key": "tag",
+      "digest": "5795c6e74091f87a34b256903db271fcca161eee",
       "scheme_id": "dt",
-      "str": "5795c6e74091f87a34b256903db271fcca161eee"
+      "type": "tag"
     }
   ],
+  "is_enabled": true,
+  "is_geo_protected": false,
+  "is_hidden": false,
   "name": "Air Temp Deg C 10 m Angelo Avg",
   "organization_id": "58db17c424dc720001671378",
   "source_type": "sensor",
   "state": "ready",
   "station_id": "58e68cabdf5ce600012602b3",
-  "tags": [
-    "ds_Medium_Air",
-    "ds_Variable_Temperature",
-    "dt_Unit_DegreeCelsius",
-    "ds_Aggregate_Average"
-  ],
-  "tags_info": {
-    "resolved_terms": [
-      {
-        "label": "Air",
-        "scheme_id": "ds",
-        "scheme_priority": 10,
-        "vocabulary_id": "ds-medium",
-        "vocabulary_label": "Medium"
-      },
-      {
-        "label": "Temperature",
-        "scheme_id": "ds",
-        "scheme_priority": 10,
-        "vocabulary_id": "ds-variable",
-        "vocabulary_label": "Variable"
-      },
-      {
-        "abbreviation": "degC",
-        "label": "DegreeCelsius",
-        "scheme_id": "dt",
-        "scheme_priority": 10,
-        "vocabulary_id": "dt-unit",
-        "vocabulary_label": "Unit"
-      },
-      {
-        "label": "Average",
-        "scheme_id": "ds",
-        "scheme_priority": 10,
-        "vocabulary_id": "ds-aggregate",
-        "vocabulary_label": "Aggregate"
-      }
-    ],
-    "scheme_refs": [
-      {
-        "_id": "ds",
-        "tag_count": 3
-      },
-      {
-        "_id": "dt",
-        "tag_count": 1
-      }
-    ],
-    "vocabulary_refs": [
-      {
-        "_id": "ds-medium"
-      },
-      {
-        "_id": "ds-variable"
-      },
-      {
-        "_id": "dt-unit"
-      },
-      {
-        "_id": "ds-aggregate"
-      }
-    ]
+  "terms": {
+    "ds": {
+      "Aggregate": "Average",
+      "Medium": "Air",
+      "Variable": "Temperature"
+    },
+    "dt": {
+      "Unit": "DegreeCelsius"
+    }
   },
-  "updated_at": "2018-07-03T19:06:10.030Z"
+  "updated_at": "2018-07-03T19:06:10.030Z",
+  "updated_by": "5a1e01638e98790001729b86"
 }

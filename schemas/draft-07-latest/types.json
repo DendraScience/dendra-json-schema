@@ -3,7 +3,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "accessLevel": {
-      "description": "A data access/visibility level: 0-restricted, 1-metadata, 2-graph, 3-downloader",
+      "description": "A data access/visibility level: 0-restricted, 1-metadata, 2-graph, 3-download",
       "enum": [
         0,
         1,
@@ -33,6 +33,51 @@
       "example": "rollupDatapoints-0C97-4378-F4DA-A1FD-7353-EFBB-B379-9CBD-4B78-1927-44D2-790D-25BA-A086-BCEC-0D93",
       "maxLength": 120,
       "type": "string"
+    },
+    "annotationAction": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "exclude": {
+              "const": true,
+              "example": true,
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "exclude"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "flag": {
+              "example": [
+                "X"
+              ],
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "flag"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "annotationActions": {
+      "description": "Specific actions to apply against the identified datapoints",
+      "items": {
+        "$ref": "#/definitions/annotationAction"
+      },
+      "minItems": 1,
+      "type": "array"
     },
     "annotationId": {
       "$ref": "#/definitions/objectId",
@@ -70,7 +115,6 @@
       "example": "592f155746a1b867a114e090"
     },
     "datapointPaginationMeta": {
-      "additionalProperties": false,
       "properties": {
         "limit": {
           "$ref": "#/definitions/paginationLimit"
@@ -86,7 +130,6 @@
       "type": "integer"
     },
     "datapointQueryParameters": {
-      "additionalProperties": false,
       "properties": {
         "$limit": {
           "$ref": "#/definitions/datapointQueryLimit"
@@ -184,7 +227,6 @@
       "example": "592f155746a1b867a114e020"
     },
     "datastreamLookupParameters": {
-      "additionalProperties": false,
       "properties": {
         "datastream_field_name": {
           "$ref": "#/definitions/queryField"
@@ -215,15 +257,6 @@
       "example": "sensor",
       "type": "string"
     },
-    "datastreamTags": {
-      "$ref": "#/definitions/tags",
-      "example": [
-        "ds_Aggregate_Average",
-        "ds_Medium_Air",
-        "ds_Variable_Temperature",
-        "dt_Unit_DegreeFahrenheit"
-      ]
-    },
     "description": {
       "description": "Text describing this document",
       "example": "Data is a precious thing and will last longer than the systems themselves (Tim Berners-Lee).",
@@ -235,7 +268,59 @@
       "type": "string"
     },
     "explicitAccessLevel": {
-      "description": "An explicit data access/visibility specification",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "level": {
+              "$ref": "#/definitions/accessLevel"
+            },
+            "organization_id": {
+              "$ref": "#/definitions/organizationId"
+            }
+          },
+          "required": [
+            "level",
+            "organization_id"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "level": {
+              "$ref": "#/definitions/accessLevel"
+            },
+            "person_id": {
+              "$ref": "#/definitions/personId"
+            }
+          },
+          "required": [
+            "level",
+            "person_id"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "level": {
+              "$ref": "#/definitions/accessLevel"
+            },
+            "team_id": {
+              "$ref": "#/definitions/teamId"
+            }
+          },
+          "required": [
+            "level",
+            "team_id"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "explicitAccessLevels": {
+      "description": "A list of explicit data access/visibility specifications",
       "example": [
         {
           "level": 2,
@@ -250,20 +335,6 @@
           "team_id": "592f155746a1b867a114e0c0"
         }
       ],
-      "items": {
-        "allOf": [
-          {
-            "$ref": "#/definitions/organizationPersonOrTeam"
-          },
-          {
-            "$ref": "#/definitions/accessLevel"
-          }
-        ]
-      },
-      "type": "array"
-    },
-    "explicitAccessLevels": {
-      "description": "A list of explicit data access/visibility specifications",
       "items": {
         "$ref": "#/definitions/explicitAccessLevel"
       },
@@ -476,6 +547,58 @@
       ],
       "type": "array"
     },
+    "interval": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "begins_at": {
+              "$ref": "types.json#/definitions/isoDatetimeUTC"
+            },
+            "ends_before": {
+              "$ref": "types.json#/definitions/isoDatetimeUTC"
+            }
+          },
+          "required": [
+            "begins_at",
+            "ends_before"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "begins_at": {
+              "$ref": "types.json#/definitions/isoDatetimeUTC"
+            }
+          },
+          "required": [
+            "begins_at"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "ends_before": {
+              "$ref": "types.json#/definitions/isoDatetimeUTC"
+            }
+          },
+          "required": [
+            "ends_before"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "intervals": {
+      "description": "A list of intervals with a begins_at and ends_before",
+      "items": {
+        "$ref": "#/definitions/interval"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
     "isEnabled": {
       "description": "Whether this document is enabled (functional) in the system",
       "example": true,
@@ -640,28 +763,57 @@
       "type": "string"
     },
     "operationalRole": {
-      "allOf": [
+      "description": "An operational role assignment",
+      "oneOf": [
         {
-          "$ref": "#/definitions/organizationPersonOrTeam"
+          "additionalProperties": false,
+          "properties": {
+            "organization_id": {
+              "$ref": "#/definitions/organizationId"
+            },
+            "roles": {
+              "$ref": "#/definitions/roles"
+            }
+          },
+          "required": [
+            "roles",
+            "organization_id"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "person_id": {
+              "$ref": "#/definitions/personId"
+            },
+            "roles": {
+              "$ref": "#/definitions/roles"
+            }
+          },
+          "required": [
+            "roles",
+            "person_id"
+          ],
+          "type": "object"
         },
         {
           "additionalProperties": false,
           "properties": {
             "roles": {
-              "items": {
-                "type": "string"
-              },
-              "minItems": 1,
-              "type": "array"
+              "$ref": "#/definitions/roles"
+            },
+            "team_id": {
+              "$ref": "#/definitions/teamId"
             }
           },
           "required": [
-            "roles"
+            "roles",
+            "team_id"
           ],
           "type": "object"
         }
-      ],
-      "description": "An operational role assignment"
+      ]
     },
     "operationalRoles": {
       "description": "A list of operational role assignments",
@@ -696,26 +848,12 @@
       "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e030"
     },
-    "organizationPersonOrTeam": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/organizationId"
-        },
-        {
-          "$ref": "#/definitions/personId"
-        },
-        {
-          "$ref": "#/definitions/teamId"
-        }
-      ]
-    },
     "paginationLimit": {
       "description": "Maximum number of items per page",
       "example": 10,
       "type": "integer"
     },
     "paginationMeta": {
-      "additionalProperties": false,
       "properties": {
         "limit": {
           "$ref": "#/definitions/paginationLimit"
@@ -763,7 +901,6 @@
       "type": "integer"
     },
     "queryParameters": {
-      "additionalProperties": false,
       "properties": {
         "$limit": {
           "$ref": "#/definitions/queryLimit"
@@ -806,6 +943,13 @@
         1
       ],
       "example": 1
+    },
+    "roles": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
     },
     "schemeId": {
       "$ref": "#/definitions/stringId",

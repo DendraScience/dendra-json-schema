@@ -20,7 +20,7 @@
           "derived_from_datastream_ids": {"$ref": "#/definitions/derived_from_datastream_ids"},
           "description": {"$ref": "#/definitions/description"},
           "external_refs": {"$ref": "#/definitions/external_refs"},
-          "geo": {"$ref": "types.json#/definitions/geo"},
+          "geo": {"$ref": "types.json#/definitions/geoPoint"},
           "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
           "is_geo_protected": {"$ref": "types.json#/definitions/isGeoProtected"},
           "is_hidden": {"$ref": "types.json#/definitions/isHidden"},

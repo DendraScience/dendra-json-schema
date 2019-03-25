@@ -1,35 +1,35 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "aggregate.json",
-  "title": "Aggregate",
-  "description": "A definition for an automated data agregate calculation.",
+  "$id": "graph.json",
+  "title": "Graph",
+  "description": "A definition for a pre-rendered graph.",
   "type": "object",
   "definitions": {
     "_id": {
-      "$ref": "types.json#/definitions/aggregateId"
+      "$ref": "types.json#/definitions/graphId"
     },
     "auth_info": {
       "type": "object",
-      "description": "System generated information about this aggregate's authentication",
+      "description": "System generated information about this graph's authentication",
       "example": {
         "jwt": "TOKEN"
       }
     },
     "build_at": {
       "$ref": "types.json#/definitions/isoDatetimeUTC",
-      "description": "When this aggregate is scheduled to be built"
+      "description": "When this graph is scheduled to be built"
     },
     "build_every": {
       "type": "string",
-      "description": "How often this aggregate should be automatically rebuilt",
+      "description": "How often this graph should be automatically rebuilt",
       "example": "1_d",
       "pattern": "^[0-9]+_[mhdwMQy]$"
     },
     "build_info": {
       "type": "object",
-      "description": "System generated information about this aggregate's build cycle",
+      "description": "System generated information about this graph's build cycle",
       "example": {
-        "request_subject": "dendra.aggregateBuild.v1.req",
+        "request_subject": "dendra.graphBuild.v1.req",
         "requested_at": "2017-05-11T00:00:00Z"
       }
     },
@@ -39,12 +39,12 @@
     },
     "expires_at": {
       "$ref": "types.json#/definitions/isoDatetimeUTC",
-      "description": "When this aggregate definition is scheduled to be groomed"
+      "description": "When this graph definition is scheduled to be groomed"
     },
     "method": {
       "type": "string",
-      "description": "The aggregation method to invoke when building the aggregate",
-      "example": "rollupDatapoints"
+      "description": "The render method to invoke when building the graph",
+      "example": "timeseriesAsc"
     },
     "name": {
       "type": "string",
@@ -103,10 +103,10 @@
   ],
   "links": [
     {
-      "title": "Create aggregate",
-      "description": "Create a new aggregate.",
+      "title": "Create graph",
+      "description": "Create a new graph.",
       "rel": "self",
-      "href": "aggregates",
+      "href": "graphs",
       "method": "POST",
       "schema": {
         "type": "object",
@@ -129,10 +129,10 @@
       "targetSchema": {"rel": "self"}
     },
     {
-      "title": "Patch aggregate",
-      "description": "Patch an existing aggregate.",
+      "title": "Patch graph",
+      "description": "Patch an existing graph.",
       "rel": "self",
-      "href": "aggregates/{#/definitions/_id}",
+      "href": "graphs/{#/definitions/_id}",
       "method": "PATCH",
       "schema": {
         "type": "object",
@@ -148,26 +148,26 @@
       "targetSchema": {"rel": "self"}
     },
     {
-      "title": "Remove aggregate",
-      "description": "Remove an existing aggregate.",
+      "title": "Remove graph",
+      "description": "Remove an existing graph.",
       "rel": "self",
-      "href": "aggregates/{#/definitions/_id}",
+      "href": "graphs/{#/definitions/_id}",
       "method": "DELETE",
       "targetSchema": {"rel": "self"}
     },
     {
-      "title": "Aggregate info",
-      "description": "Return a specific aggregate.",
+      "title": "Graph info",
+      "description": "Return a specific graph.",
       "rel": "self",
-      "href": "aggregates/{#/definitions/_id}",
+      "href": "graphs/{#/definitions/_id}",
       "method": "GET",
       "targetSchema": {"rel": "self"}
     },
     {
-      "title": "List aggregates",
-      "description": "Find one or more aggregates based on the query parameters.",
+      "title": "List graphs",
+      "description": "Find one or more graphs based on the query parameters.",
       "rel": "instances",
-      "href": "aggregates",
+      "href": "graphs",
       "method": "GET",
       "schema": {
         "$ref": "types.json#/definitions/queryParameters"
@@ -188,10 +188,10 @@
       }
     },
     {
-      "title": "Request aggregate",
-      "description": "Request an aggregate result. Creates and builds the aggregate if it does not exist.",
+      "title": "Request graph",
+      "description": "Request a pre-rendered graph. Creates and builds the graph if it does not exist.",
       "rel": "self",
-      "href": "aggregates/request",
+      "href": "graphs/request",
       "method": "POST",
       "schema": {
         "type": "object",
@@ -212,10 +212,10 @@
       "targetSchema": {"rel": "self"}
     },
     {
-      "title": "Aggregate result",
-      "description": "Request a specific pre-built aggregate result.",
+      "title": "Graph result",
+      "description": "Request a specific pre-rendered graph image.",
       "rel": "self",
-      "href": "aggregates/result/{#/definitions/_id}",
+      "href": "graphs/result/{#/definitions/_id}",
       "method": "GET",
       "targetSchema": {
         "type": "object",
