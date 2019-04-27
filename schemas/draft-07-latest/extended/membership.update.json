@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "membership.create.json",
+  "$id": "membership.update.json",
   "$patch": {
     "source": {"$ref": "membership.json#"},
     "with": [
