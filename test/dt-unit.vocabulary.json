@@ -1,6 +1,7 @@
 {
   "_id": "dt-unit",
   "is_enabled": true,
+  "is_hidden": false,
   "label": "Unit",
   "scheme_id": "dt",
   "terms": [

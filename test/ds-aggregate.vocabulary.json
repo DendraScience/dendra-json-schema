@@ -1,6 +1,7 @@
 {
   "_id": "ds-aggregate",
   "is_enabled": false,
+  "is_hidden": false,
   "label": "Aggregate",
   "scheme_id": "ds",
   "terms": [
