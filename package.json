@@ -1,6 +1,6 @@
 {
   "name": "dendra-json-schema",
-  "version": "0.0.6",
+  "version": "2.0.2",
   "description": "JSON Schema files for the Dendra data platform.",
   "license": "BSD-2-Clause-FreeBSD",
   "author": "J. Scott Smith <scott@newleafsolutionsinc.com>",
