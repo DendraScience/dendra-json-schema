@@ -15,6 +15,7 @@
           "external_refs": {"$ref": "#/definitions/external_refs"},
           "intervals": {"$ref": "#/definitions/intervals"},
           "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
+          "operational_roles": {"$ref": "types.json#/definitions/operationalRoles"},
           "organization_id": {"$ref": "#/definitions/organization_id"},
           "state": {"$ref": "#/definitions/state"},
           "station_ids": {"$ref": "#/definitions/station_ids"},

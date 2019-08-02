@@ -20,6 +20,7 @@
               "external_refs": {"$ref": "#/definitions/external_refs"},
               "intervals": {"$ref": "#/definitions/intervals"},
               "is_enabled": {"$ref": "types.json#/definitions/isEnabled"},
+              "operational_roles": {"$ref": "types.json#/definitions/operationalRoles"},
               "state": {"$ref": "#/definitions/state"},
               "station_ids": {"$ref": "#/definitions/station_ids"},
               "title": {"$ref": "#/definitions/title"}
@@ -33,6 +34,7 @@
               "description": {"$ref": "types.json#/definitions/unset"},
               "external_refs": {"$ref": "types.json#/definitions/unset"},
               "intervals": {"$ref": "types.json#/definitions/unset"},
+              "operational_roles": {"$ref": "types.json#/definitions/unset"},
               "station_ids": {"$ref": "types.json#/definitions/unset"}
             },
             "type": "object"
