@@ -85,11 +85,7 @@
       "type": "doc"
     }
   ],
-  "is_enabled": true,
-  "is_geo_protected": false,
-  "is_hidden": false,
-  "name": "Blue Oak Ranch Avg Air Temp F 10 m",
-  "operational_roles": [
+  "involved_parties": [
     {
       "organization_id": "592f155746a1b867a114e030",
       "roles": [
@@ -110,6 +106,10 @@
       "team_id": "592f155746a1b867a114e0c0"
     }
   ],
+  "is_enabled": true,
+  "is_geo_protected": false,
+  "is_hidden": false,
+  "name": "Blue Oak Ranch Avg Air Temp F 10 m",
   "organization_id": "592f155746a1b867a114e030",
   "preferred_uom_ids": [
     "degree-fahrenheit"
