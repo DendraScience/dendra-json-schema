@@ -8,6 +8,10 @@
     "_id": {
       "$ref": "types.json#/definitions/stationId"
     },
+    "description": {
+      "$ref": "types.json#/definitions/description",
+      "example": "The Blue Oak Ranch reserve weather station."
+    },
     "external_links": {
       "$ref": "types.json#/definitions/externalLinks",
       "example": [
@@ -90,6 +94,7 @@
     "access_levels": {"$ref": "types.json#/definitions/accessLevels"},
     "created_at": {"$ref": "types.json#/definitions/createdAt"},
     "created_by": {"$ref": "types.json#/definitions/createdBy"},
+    "description": {"$ref": "#/definitions/description"},
     "external_links": {"$ref": "#/definitions/external_links"},
     "external_refs": {"$ref": "#/definitions/external_refs"},
     "full_name": {"$ref": "#/definitions/full_name"},
@@ -140,6 +145,7 @@
         "type": "object",
         "properties": {
           "access_levels": {"$ref": "types.json#/definitions/accessLevels"},
+          "description": {"$ref": "#/definitions/description"},
           "external_links": {"$ref": "#/definitions/external_links"},
           "external_refs": {"$ref": "#/definitions/external_refs"},
           "full_name": {"$ref": "#/definitions/full_name"},
@@ -188,6 +194,7 @@
         "type": "object",
         "properties": {
           "access_levels": {"$ref": "types.json#/definitions/accessLevels"},
+          "description": {"$ref": "#/definitions/description"},
           "external_links": {"$ref": "#/definitions/external_links"},
           "external_refs": {"$ref": "#/definitions/external_refs"},
           "full_name": {"$ref": "#/definitions/full_name"},
@@ -225,6 +232,7 @@
         "properties": {
           "_id": {"$ref": "#/definitions/_id"},
           "access_levels": {"$ref": "types.json#/definitions/accessLevels"},
+          "description": {"$ref": "#/definitions/description"},
           "external_links": {"$ref": "#/definitions/external_links"},
           "external_refs": {"$ref": "#/definitions/external_refs"},
           "full_name": {"$ref": "#/definitions/full_name"},

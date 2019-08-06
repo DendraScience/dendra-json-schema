@@ -10,6 +10,7 @@
         "value": {
           "_id": {"$ref": "#/definitions/_id"},
           "access_levels": {"$ref": "types.json#/definitions/accessLevels"},
+          "description": {"$ref": "#/definitions/description"},
           "external_links": {"$ref": "#/definitions/external_links"},
           "external_refs": {"$ref": "#/definitions/external_refs"},
           "full_name": {"$ref": "#/definitions/full_name"},

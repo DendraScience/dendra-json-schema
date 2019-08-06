@@ -15,6 +15,7 @@
           "$set": {
             "properties": {
               "access_levels": {"$ref": "types.json#/definitions/accessLevels"},
+              "description": {"$ref": "#/definitions/description"},
               "external_links": {"$ref": "#/definitions/external_links"},
               "external_refs": {"$ref": "#/definitions/external_refs"},
               "full_name": {"$ref": "#/definitions/full_name"},
@@ -43,6 +44,7 @@
           "$unset": {
             "properties": {
               "access_levels": {"$ref": "types.json#/definitions/unset"},
+              "description": {"$ref": "types.json#/definitions/unset"},
               "external_links": {"$ref": "types.json#/definitions/unset"},
               "external_refs": {"$ref": "types.json#/definitions/unset"},
               "full_name": {"$ref": "types.json#/definitions/unset"},
