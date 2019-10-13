@@ -24,21 +24,16 @@
       "value": 10
     }
   },
-  "attributes_built": {
-    "height": {
-      "sort": {
-        "value1": 10,
-        "value2": 0
-      },
-      "text": "10",
-      "unit_tag": "dt_Unit_Meter",
-      "value": 10
-    }
-  },
+  "attributes_built": [
+    {}
+  ],
   "created_at": "2017-05-28T09:50:23.106Z",
   "created_by": "5a1e01638e98790001729b86",
   "datapoints_config": [
     {
+      "actions": {
+        "evaluate": "v = (v / 0.254) * 0.1"
+      },
       "begins_at": "2017-05-28T09:50:23.106Z",
       "connection": "legacy",
       "ends_before": "2017-05-28T09:50:23.106Z",
@@ -55,6 +50,7 @@
     {}
   ],
   "derivation_description": "Calculated server-side based on the Celsius datastream.",
+  "derivation_method": "deriveWYTotal",
   "derived_from_datastream_ids": [
     "592f155746a1b867a114e021"
   ],
