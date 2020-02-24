@@ -1,0 +1,30 @@
+{
+  "_id": "592f155746a1b867a114e0e0",
+  "created_at": "2017-05-28T09:50:23.106Z",
+  "created_by": "5a1e01638e98790001729b86",
+  "organization_id": "58db17c424dc720001671378",
+  "result": {
+    "records": 10000
+  },
+  "spec": {
+    "comment": "My first file import",
+    "method": "csvStream",
+    "notify": [
+      "mailto:someone@dendra.science"
+    ],
+    "options": {
+      "some": "value"
+    }
+  },
+  "spec_type": "file/import",
+  "station_id": "58e68cacdf5ce600012602d7",
+  "storage": {
+    "method": "local",
+    "options": {
+      "path": "/"
+    }
+  },
+  "updated_at": "2017-05-28T09:50:23.106Z",
+  "updated_by": "5a1e01638e98790001729b86",
+  "version_id": "592f155746a1b867a114e0b0"
+}
