@@ -33,7 +33,7 @@
             "additionalProperties": false,
             "properties": {
               "actions": {"$ref": "types.json#/definitions/unset"},
-              "affected_station_ids": {"$ref": "#/definitions/unset"},
+              "affected_station_ids": {"$ref": "types.json#/definitions/unset"},
               "datastream_ids": {"$ref": "types.json#/definitions/unset"},
               "description": {"$ref": "types.json#/definitions/unset"},
               "external_refs": {"$ref": "types.json#/definitions/unset"},
