@@ -1,0 +1,24 @@
+{
+  "_id": "592f155746a1b867a114e0d0",
+  "description": "The 05103 Wind Monitor is a lightweight, sturdy instrument for measuring wind speed and direction in your harsh environments. Its simplicity and corrosion-resistant construction make it ideal for a wide range of wind measuring applications. Manufactured by R. M. Young, this wind monitor is cabled for use with your Campbell Scientific data logger.",
+  "external_links": [
+    {
+      "title": "Manufacturer",
+      "url": "http://www.youngusa.com/products/7/5.html"
+    },
+    {
+      "title": "Manual",
+      "url": "https://s.campbellsci.com/documents/us/manuals/05103.pdf"
+    }
+  ],
+  "external_refs": [
+    {
+      "identifier": "2952",
+      "type": "odm.methods.MethodID"
+    }
+  ],
+  "is_enabled": true,
+  "manufacturer_tag": "dl_Manufacturer_RMYoung",
+  "model": "05103",
+  "name": "Wind Monitor"
+}
