@@ -1,0 +1,29 @@
+{
+  "_id": "592f155746a1b867a114e0f0",
+  "created_at": "2017-05-28T09:50:23.106Z",
+  "created_by": "5a1e01638e98790001729b86",
+  "requester_email": "someone@dendra.science",
+  "result": {
+    "records": 10000
+  },
+  "spec": {
+    "comment": "My first file export",
+    "method": "csvStream",
+    "notify": [
+      "mailto:someone@dendra.science"
+    ],
+    "options": {
+      "some": "value"
+    }
+  },
+  "spec_type": "file/export",
+  "storage": {
+    "method": "gdrive",
+    "options": {
+      "folder_id": "0BxmJYIxm-ULtLWVWVWVjUjRNNTg"
+    }
+  },
+  "updated_at": "2017-05-28T09:50:23.106Z",
+  "updated_by": "5a1e01638e98790001729b86",
+  "version_id": "592f155746a1b867a114e0b0"
+}
