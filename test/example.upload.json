@@ -17,6 +17,7 @@
     }
   },
   "spec_type": "file/import",
+  "state": "finished",
   "station_id": "58e68cacdf5ce600012602d7",
   "storage": {
     "method": "local",

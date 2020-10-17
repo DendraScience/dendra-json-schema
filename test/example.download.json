@@ -17,6 +17,7 @@
     }
   },
   "spec_type": "file/export",
+  "state": "finished",
   "storage": {
     "method": "gdrive",
     "options": {
