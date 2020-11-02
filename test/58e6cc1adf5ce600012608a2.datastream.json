@@ -4,7 +4,7 @@
   "created_by": "5a1e01638e98790001729b86",
   "datapoints_config": [
     {
-      "begins_at": "2013-01-01T00:00:00Z",
+      "begins_at": "2013-01-01T00:00:00.000Z",
       "params": {
         "query": {
           "compact": true,
