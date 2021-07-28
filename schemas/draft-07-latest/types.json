@@ -114,6 +114,15 @@
       "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e0a0"
     },
+    "builtDatapointsConfig": {
+      "description": "System generated service configuration for fetching datapoints",
+      "items": {
+        "type": "object",
+        "example": {}
+      },
+      "minItems": 1,
+      "type": "array"
+    },
     "companyId": {
       "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e100"
@@ -753,32 +762,6 @@
       "maxLength": 50,
       "type": "string"
     },
-    "loadSpec": {
-      "additionalProperties": false,
-      "description": "Specifications for file loading",
-      "properties": {
-        "comment": {
-          "$ref": "#/definitions/description"
-        },
-        "method": {
-          "type": "string"
-        },
-        "notify": {
-          "items": {
-            "type": "string"
-          },
-          "minItems": 1,
-          "type": "array"
-        },
-        "options": {
-          "$ref": "#/definitions/options"
-        }
-      },
-      "required": [
-        "method"
-      ],
-      "type": "object"
-    },
     "media": {
       "description": "Image and video resources at specific sizes and pixel densities",
       "example": [
@@ -893,6 +876,10 @@
     "membershipId": {
       "$ref": "#/definitions/objectId",
       "example": "592f155746a1b867a114e080"
+    },
+    "monitorId": {
+      "$ref": "#/definitions/objectId",
+      "example": "592f155746a1b867a114e110"
     },
     "objectId": {
       "description": "The unique document identifier",
@@ -1016,9 +1003,42 @@
       "minItems": 1,
       "type": "array"
     },
+    "schedule": {
+      "description": "Key/value pairs to further schedule this item",
+      "type": "object"
+    },
     "schemeId": {
       "$ref": "#/definitions/stringId",
       "example": "ds"
+    },
+    "serviceSpec": {
+      "additionalProperties": false,
+      "description": "Specifications for downstream service processing",
+      "properties": {
+        "comment": {
+          "$ref": "#/definitions/description"
+        },
+        "method": {
+          "type": "string"
+        },
+        "notify": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "options": {
+          "$ref": "#/definitions/options"
+        },
+        "schedule": {
+          "$ref": "#/definitions/schedule"
+        }
+      },
+      "required": [
+        "method"
+      ],
+      "type": "object"
     },
     "slug": {
       "description": "A human-readable and URL-friendly name used to retrieve this document's page or resource",
@@ -1051,7 +1071,7 @@
     },
     "storageSpec": {
       "additionalProperties": false,
-      "description": "Storage specifications for file loading",
+      "description": "Specifications for service storage mechanisms to use",
       "properties": {
         "method": {
           "$ref": "#/definitions/storageMethod"

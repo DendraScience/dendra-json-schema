@@ -46,6 +46,9 @@
   "datapoints_config_built": [
     {}
   ],
+  "datapoints_config_refd": [
+    {}
+  ],
   "derivation_description": "Calculated server-side based on the Celsius datastream.",
   "derivation_method": "deriveWYTotal",
   "derived_from_datastream_ids": [
