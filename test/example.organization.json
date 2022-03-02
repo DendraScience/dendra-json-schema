@@ -22,6 +22,7 @@
   "created_by": "592f155746a1b867a114e010",
   "email": "infomgr@ucnrs.org",
   "is_enabled": true,
+  "is_hidden": false,
   "name": "University of California Natural Reserve System",
   "slug": "ucnrs",
   "updated_at": "2017-05-28T09:50:23.106Z",
